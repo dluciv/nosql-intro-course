@@ -1,0 +1,18 @@
+/* custom styles can go here */
+
+#chapter-foo p {
+	text-transform: uppercase;
+}
+
+.reveal h1 {
+	font-size: 64px;
+}
+
+.reveal h2 {
+	font-size: 48px;
+}
+
+.reveal h1, .reveal h2 {
+	font-family: sans-serif;
+	font-weight: bold;
+}
