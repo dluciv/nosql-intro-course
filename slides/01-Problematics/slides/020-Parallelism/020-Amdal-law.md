@@ -4,6 +4,6 @@ $T(1)$ время вычисления на одном вычислителе, $
 
 $\alpha$ последовательно, $1 - \alpha$ параллельно
 
-Эффективность распараллеливания:
+Ускорение при распараллеливании:
 
-$$E(n) \underset{n\rightarrow\infty}{\rightarrow} \frac{1}{\alpha}$$
+$$S(n) \underset{n\rightarrow\infty}{\rightarrow} \frac{1}{\alpha}$$
