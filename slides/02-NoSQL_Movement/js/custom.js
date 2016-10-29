@@ -2,7 +2,11 @@
 
 // You can customize Reveal options:
 Reveal.configure({
-	"center": false,
+	center: true,
+	minScale: 0.25,
+	maxScale: 1.0,
+        width:    1600,
+        height:   1200,
 	dependencies: [
 	        { src: 'plugin/zoom-js/zoom.js', async: true },
         	{ src: 'plugin/notes/notes.js', async: true },

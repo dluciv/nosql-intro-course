@@ -53,12 +53,17 @@
 
 Доступны [запись занятия 25.10.2016](https://youtu.be/qHFYgicOI1o) и [слайды](https://dluciv.github.io/nosql-intro-course/slides/01-Problematics).
 
-### The NoSQL Movement
-1. «Теорема» CAP
+### The NoSQL movement и основные свойства NoSQL БД
+1. The NoSQL Movement
+    * История
+    * Суть
+2. ACID vs BASE
+3. «Теорема» [CAP](https://en.wikipedia.org/wiki/CAP_theorem)
     * Правда жизни
     * [«Доказательство»](http://mwhittaker.github.io/2014/08/16/illustrated-proof-cap-theorem/)
     * [Дискуссия](http://citforum.ru/gazeta/154/) и [критика](https://arxiv.org/abs/1509.05393)
-2. «Теорема» PACELC
+4. «Теорема» [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
+5. [О согласованности в конечном счёте](http://citforum.ru/gazeta/154/)
 
 ### Нереляционные СУБД
 1. Логические
@@ -116,3 +121,11 @@
 
 1. [Wakanda: NoSQL for Model-Driven Web applications - NoSQL matters 2012](http://www.slideshare.net/alexandre_morgaut/wakanda-nosql-for-modeldriven-web-applications)
 2. Продолжение следует
+
+## Список литературы
+
+... и не только литературы
+
+1. Christof Strauch [NoSQL Databases](http://www.christof-strauch.de/nosqldbs.pdf)
+2. Michael Stonebraker [Errors in Database Systems, Eventual Consistency, and the CAP Theorem](http://cacm.acm.org/blogs/blog-cacm/83396-errors-in-database-systems-eventual-consistency-and-the-cap-theorem/fulltext#). BLOG@CACM, April 5, 2010.
+   [Перевод](http://citforum.ru/gazeta/154/) С.Д. Кузнецова, ИСП РАН.
