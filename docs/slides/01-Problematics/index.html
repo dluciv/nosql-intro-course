@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Проблематика</title>
+
+    <meta name="description" content="Проблематика: потребности и возможности; реляционные СУБД и то, что было до них; NoSQL movement.">
+    <meta name="author" content="Луцив Д.В. &lt;dluciv@dluciv.name&gt;">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/zenburn.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="hello" class="slide" data-has-notes="false">
+<h2>Распределённая обработка информации и NoSQL СУБД</h2><h1>Проблематика</h1><p>Луцив Дмитрий Вадимович</p>
+<p>ЗАО «Ланит-Терком», СПбГУ</p>
+</section>
+
+<section id="chapter-problematics" class="chapter">
+<section id="problematics-moore" class="slide" data-background="images/moore.gif" data-has-notes="false">
+<h1>Закон Мура</h1>
+</section>
+
+<section id="problematics-moore" class="slide" data-has-notes="false">
+<h2>Гордон Мур</h2><p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gordon_Moore.jpg" alt=""></p>
+<p>Химик, специалист по полупроводникам</p>
+</section>
+
+<section id="problematics-defs" class="slide" data-has-notes="false">
+<h2>Закон Му́ра, 1965</h2><p><a href="images/moore.svg"><img src="images/moore.svg" height="500px" /></a></p>
+<ul>
+<li>Количество транзисторов в СБИС за два года удваивается</li>
+</ul>
+</section>
+
+<section id="problematics-limits" class="slide" data-has-notes="false">
+<h2>Пределы</h2><p><a href="https://en.wikipedia.org/wiki/Transistor_count">Факты</a>:</p>
+<ul>
+<li><p>22-core Xeon Broadwell-E5 — 2016 — 14 нм — $7,2\cdot10^9$</p>
+</li>
+<li><p>SPARC M7 — 2015 — 20 nm — $10^{10}$</p>
+</li>
+</ul>
+<p>Физико-технологические пределы:</p>
+<ul>
+<li><p>Максимальный размер пластины в производстве — <a href="https://en.wikipedia.org/wiki/Wafer_(electronics%29">450 мм в диаметре</a> (экзотика)</p>
+</li>
+<li><p>В 2017 Intel, а в 2016 — Samsung <a href="http://www.3dnews.ru/917247">собираются использовать 10 нм</a></p>
+</li>
+<li><p>$\frac{\pi 0,45^2}{(10\cdot10^{-9})^2} \approx 6,36 \cdot 10^{15}$, вроде бы есть запас?..</p>
+</li>
+</ul>
+</section>
+
+<section id="problematics-comments" class="slide" data-has-notes="false">
+<h2>Комментарии</h2><p>А зачем вообще транзистор? Может ну его?</p>
+<p>С сайта <a href="http://www.island-formoza.ru/">Ремонт и настройка компьютера своими силами для девочек</a> (на самом деле из кучи книжек):</p>
+<p><a href="http://www.island-formoza.ru/images/arhitektura-pc-49.png"><img src="http://www.island-formoza.ru/images/arhitektura-pc-49.png" height="300px"/></a></p>
+<p>Больше транзисторов $\not\Rightarrow$ хорошо само по себе</p>
+</section>
+
+<section id="problematics-scaling" class="slide" data-has-notes="false">
+<h2>Масштабируемость</h2><p>Мы заметили, что процессоры из примера многоядерные? А зачем?</p>
+<p>Примеры восхитительных плодов безудержного стремления к распараллеливанию:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Instruction_pipelining#History">Конвейер</a></p>
+<ul>
+<li><p>Z1, 1939</p>
+</li>
+<li><p>Алан Тюринг</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Adder_(electronics%29#Carry-lookahead_adder">Схема ускоренного переноса</a></p>
+</li>
+</ul>
+</section>
+</section>
+
+<section id="chapter-parallelism" class="chapter">
+<section id="parallelism-paralellism" class="slide" data-background="images/parallel.gif" data-has-notes="false">
+<h1>Параллелизм</h1>
+</section>
+
+<section id="parallelism-amdal" class="slide" data-has-notes="false">
+<h2>Джин Амдал</h2><p><a href="https://en.wikipedia.org/wiki/Gene_Amdahl"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Amdahl_march_13_2008.jpg" height="300px" /></a></p>
+<p>Главный архитектор IBM System/360</p>
+</section>
+
+<section id="parallelism-amdal-law" class="slide" data-has-notes="false">
+<h2>Закон Амдала</h2><p>$T(1)$ время вычисления на одном вычислителе, $T(n)$ — на $n$, $E(n) = \frac{T(1)}{T(n)}$</p>
+<p>$\alpha$ последовательно, $1 - \alpha$ параллельно</p>
+<p>Ускорение при распараллеливании:</p>
+<p>$$S(n) \underset{n\rightarrow\infty}{\rightarrow} \frac{1}{\alpha}$$</p>
+</section>
+
+<section id="parallelism-amdal-proof" class="slide" data-has-notes="false">
+<h2>Почему</h2><p>$$S(n) = \frac{T(1)}{T(n)} =$$</p>
+<p>$$= \frac{T(1)}{\alpha T(1) + (1 - \alpha) \frac{T(1)}{n}} &lt; \frac{1}{\alpha}$$</p>
+</section>
+
+<section id="parallelism-programming" class="slide" data-has-notes="false">
+<h2>А.Н. Терехов (не дословно)</h2><p><em>В Политехе суперкомпьютер, на ПМПУ кластер, оба загружены на единицы процентов. Программировать некому.</em></p>
+</section>
+</section>
+
+<section id="chapter-distribution" class="chapter">
+<section id="distribution-distribution" class="slide" data-background="images/distributed.gif" data-has-notes="false">
+<h1>Распределённость</h1>
+</section>
+
+<section id="distribution-reasoning" class="slide" data-has-notes="false">
+<h2>Зачем</h2><ul>
+<li><p>Закон Мура</p>
+</li>
+<li><p>Даже если бы не он — память общая, шины общие</p>
+</li>
+<li><p>Если память и шины не общие, значит уже сдались</p>
+<ul>
+<li>У GPGPU внутренняя память и шины у шейдеров свои, отдельные</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="distribution-topology" class="slide" data-has-notes="false">
+<h2>Топология</h2><p><a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F">Происхождение термина</a></p>
+<p>Следует</p>
+<ul>
+<li><p>Передавать меньше</p>
+</li>
+<li><p>Передавать ближе</p>
+</li>
+<li><p>По возможности, считать и хранить рядом</p>
+</li>
+</ul>
+<p>Топология должна быть достаточной, но не избыточной</p>
+</section>
+
+<section id="distribution-topology-transputer" class="slide" data-has-notes="false">
+<h2>Пример: задачи на плоскости</h2><ul>
+<li><p>Волновые уравнения</p>
+</li>
+<li><p>Уравнения теплопроводности</p>
+</li>
+</ul>
+<p>Пример решения — <a href="https://en.wikipedia.org/wiki/Transputer#Links">Транспьютер</a> (Inmos, UK, 1980-е)</p>
+</section>
+
+<section id="distribution-topology-dodecahedron" class="slide" data-has-notes="false">
+<h2>Пример: задачи на сфере</h2><ul>
+<li>Метеорология</li>
+</ul>
+<p>Пример топологии — додекаэдр или другой вписанный многогранник</p>
+</section>
+
+<section id="distribution-lift" class="slide" data-has-notes="false">
+<h2>Пример: Станция управления лифтом</h2><p>Вызов или приказ куда: наверх или вниз?</p>
+<ul>
+<li><p>Централизованная система — <a href="https://youtu.be/M1vb-sm8Dcg?t=6m6s">винтовой селектор</a> — масштабируется тяжело, точка отказа, зато элегантно</p>
+</li>
+<li><p>Распредеделённая система — <a href="https://youtu.be/aKbKQu1wR3I?t=1m10s">инверсия направления</a> этажным переключателем — можно развесить по шахте, но пыльно и обслуживать тяжело</p>
+</li>
+</ul>
+</section>
+</section>
+
+<section id="chapter-rdbms" class="chapter">
+<section id="rdbms-history" class="slide" data-background="images/retrodata.gif" data-has-notes="false">
+<h1>Базы данных</h1>
+</section>
+
+<section id="rdbms-formatted_files_cobol" class="slide" data-has-notes="false">
+<h2>Форматированные файлы: COBOL</h2><pre><code>DATA DIVISION.
+
+   FILE SECTION.
+
+   FD STUDENT.
+
+   <span class="hljs-number">01</span> STUDENT-FILE.
+
+      <span class="hljs-number">05</span> STUDENT-ID PIC <span class="hljs-number">9</span>(<span class="hljs-number">5</span>).
+
+      <span class="hljs-number">05</span> NAME PIC A(<span class="hljs-number">25</span>).
+
+
+
+   WORKING-STORAGE SECTION.
+
+   <span class="hljs-number">01</span> WS-STUDENT.
+
+      <span class="hljs-number">05</span> WS-STUDENT-ID PIC <span class="hljs-number">9</span>(<span class="hljs-number">5</span>).
+
+      <span class="hljs-number">05</span> WS-NAME PIC A(<span class="hljs-number">25</span>).
+
+   <span class="hljs-number">01</span> WS-<span class="hljs-literal">EOF</span> PIC A(<span class="hljs-number">1</span>).
+</code></pre>
+</section>
+
+<section id="rdbms-formatted-files-pascal" class="slide" data-has-notes="false">
+<h2>Форматированные файлы: Pascal</h2><pre><code><span class="hljs-keyword">Type</span> anketa1=<span class="hljs-keyword">record</span>
+
+   fio: <span class="hljs-built_in">string</span>[<span class="hljs-number">45</span>];
+
+   alg: <span class="hljs-built_in">integer</span>;
+
+   phis: <span class="hljs-built_in">integer</span>;
+
+   him: <span class="hljs-built_in">integer</span>;
+
+<span class="hljs-keyword">end</span>;
+
+
+
+Var stud:anketa1;
+
+Gr:<span class="hljs-keyword">array</span>[<span class="hljs-number">1</span>..<span class="hljs-number">30</span>] <span class="hljs-keyword">of</span> anketa1;
+
+
+
+ff:<span class="hljs-keyword">file</span> <span class="hljs-keyword">of</span> anketa1;
+</code></pre><p><a href="http://www.cyberforum.ru/turbo-pascal/thread168644.html">Пример</a> менее олдскульный, но более трогательный =)</p>
+</section>
+
+<section id="rdbms-hierarchical-dbms" class="slide" data-has-notes="false">
+<h2><a href="https://en.wikipedia.org/wiki/Hierarchical_database_model">Иерархические БД</a></h2><p><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Hierarchical_Model.svg" alt=""></p>
+<p>Пример — IBM <a href="https://en.wikipedia.org/wiki/IBM_Information_Management_System">IMS</a>, 1960-е</p>
+</section>
+
+<section id="rdbms-tabulators" class="slide" data-has-notes="false">
+<h2>Форматированные файлы старше компьютеров</h2><p><a href="https://en.wikipedia.org/wiki/Tabulating_machine">Табулятор</a> — 1890 (Hollerith (BTM)) – 1976 (IBM 407)</p>
+<ul>
+<li><p>Сортировка (поразрядная, время близко к линейному)</p>
+</li>
+<li><p>Разбиение на классы эквивалентности</p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/British_Tabulating_Machine_Company">BTM</a> — уже практически компьютеры, с памятью на магнитном барабане</p>
+</li>
+</ul>
+</section>
+
+<section id="rdbms-rdbms1" class="slide" data-has-notes="false">
+<h2>РБД</h2><ul>
+<li><p>Очень строгая система типов</p>
+</li>
+<li><p>Очень хорошие алгебра и логика в основе системы типов</p>
+</li>
+</ul>
+</section>
+
+<section id="rdbms-rdbms2" class="slide" data-has-notes="false">
+<h2>РБД: НО</h2><ul>
+<li><p>Все ссылки косвенные, типизированные доменом</p>
+<ul>
+<li>Многие поддерживают ссылки на <code>ROWID</code> — грязный хак</li>
+</ul>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/ACID">ACID</a> — благословение и проклятие</p>
+<ul>
+<li><p>Явная фиксация транзакций</p>
+</li>
+<li><p>Сериализуемость транзакций тяжело проверить в распределённой системе</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="rdbms-rdbms-sa" class="slide" data-has-notes="false">
+<h2>РБД: Масштабируемость</h2><ul>
+<li><p>Распределённые индексы — сложно $\implies$ легче таблицу держать на одном узле</p>
+</li>
+<li><p>Распределённые JOIN — медленно $\implies$ легче соединяемые таблицы тоже держать на одном узле</p>
+</li>
+</ul>
+<h2>РБД: Доступность</h2><ul>
+<li>Ожидается доступность всего кластера (хотя бы с репликами)</li>
+</ul>
+</section>
+
+<section id="rdbms-rdbms-orm" class="slide" data-has-notes="false">
+<h2>РБД: ORM</h2><p><a href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">O-R impedance mismatch</a>, особенно:</p>
+<ul>
+<li><p>Structural and integrity differences — логические языки подошли бы лучше, чем объектно-ориентированные</p>
+</li>
+<li><p>Manipulative differences — объектно-ориентированные языки обычно императивные и часто довольно низкоуровневые (в</p>
+<p>плане выразительной силы и встроенного уровня абстракции)</p>
+</li>
+<li><p>Разные свойства транзакций, и, по-хорошему, отсутствие транзакций в языках</p>
+</li>
+</ul>
+</section>
+
+<section id="rdbms-cluster-rdbms" class="slide" data-has-notes="false">
+<h2>Современные попытки</h2><p>Действительно современные (в активной разработке) и пока довольно робкие,</p>
+<p>например, <a href="http://docs.clustrix.com/display/CLXDOC/ClustrixDB+Documentation">Clustrix</a>.</p>
+</section>
+
+<section id="rdbms-goldenhammer" class="slide" data-has-notes="false">
+<h2>Любая конкретная методология</h2><p><a href="https://ru.wikipedia.org/wiki/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B9_%D0%BC%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%BA"><img src="images/GoldenHammer-ru.gif" alt=""></a></p>
+<p>Я привык гвозди забивать молотком, поэтому и забор буду красить молотком</p>
+</section>
+</section>
+
+<section id="thanks" class="slide" data-has-notes="false">
+<h1>Спасибо</h1>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/such-notes-print.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>

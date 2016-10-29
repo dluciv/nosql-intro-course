@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Распределённая обработка информации и NoSQL СУБД</title>
+
+    <meta name="description" content="Привет =)">
+    <meta name="author" content="Луцив Д.В. &lt;dluciv@dluciv.name&gt;">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/zenburn.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="hello" class="slide" data-has-notes="false">
+<h1>Распределённая обработка информации и NoSQL СУБД</h1><p>Луцив Дмитрий Вадимович</p>
+<p>ЗАО «Ланит-Терком», СПбГУ</p>
+</section>
+
+<section id="contacts" class="slide" data-has-notes="false">
+<ul>
+<li><p>Курс на 7-8 занятий</p>
+</li>
+<li><p><a href="https://github.com/dluciv/nosql-intro-course">Приблизительная программа курса</a></p>
+<ul>
+<li><p>Предполагается активное участие</p>
+</li>
+<li><p>Всегда кто-то знает лучше. Выступайте, интересно всем!</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/dluciv/xmpp-unread-forwarder/master/t-rex-chatting.gif" height="200px"/></p>
+<ul>
+<li><a href="https://riot.im/app/#/room/#lt-nosql:matrix.org">Чатик!!!</a></li>
+</ul>
+</section>
+
+<section id="lets_go" class="slide" data-background="images/skiing.gif" data-has-notes="false">
+<h1>Поехали!</h1>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/such-notes-print.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>
