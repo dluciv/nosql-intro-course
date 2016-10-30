@@ -1,4 +1,4 @@
-## Опять ACID vs BASE
+## ACID vs BASE II
 
 <table>
 <thead><tr>

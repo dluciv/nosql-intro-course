@@ -13,7 +13,7 @@
 7. *Transport cost is zero*
 8. *The network is homogeneous*
 
-**Michael Stonebraker**
+**[Michael Stonebraker](https://en.wikipedia.org/wiki/Michael_Stonebraker)**
 
 Тоже на самом деле очень много что говорит, подробнее об этом — Christof Strauch в [NoSQL Databases](http://www.christof-strauch.de/nosqldbs.pdf).
 
