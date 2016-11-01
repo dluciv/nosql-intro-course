@@ -57,13 +57,14 @@
 1. The NoSQL Movement
     * История
     * Суть
-2. ACID vs BASE
+2. ACID vs BASE, [О согласованности в конечном счёте](http://citforum.ru/gazeta/154/)
 3. «Теорема» [CAP](https://en.wikipedia.org/wiki/CAP_theorem)
     * Правда жизни
     * [«Доказательство»](http://mwhittaker.github.io/2014/08/16/illustrated-proof-cap-theorem/)
     * [Дискуссия](http://citforum.ru/gazeta/154/) и [критика](https://arxiv.org/abs/1509.05393)
 4. «Теорема» [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
-5. [О согласованности в конечном счёте](http://citforum.ru/gazeta/154/)
+
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC).
 
 ### Нереляционные СУБД
 1. Логические
