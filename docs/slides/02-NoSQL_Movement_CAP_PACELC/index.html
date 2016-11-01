@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>NoSQL movement и основные свойства NoSQL БД</title>
+
+    <meta name="description" content="NoSQL movement и основные свойства NoSQL БД">
+    <meta name="author" content="Луцив Д.В. &lt;dluciv@dluciv.name&gt;">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/zenburn.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="hello" class="slide" data-has-notes="false">
+<h2>Распределённая обработка информации и NoSQL СУБД</h2><h1>NoSQL movement и основные свойства NoSQL БД</h1><h3>Луцив Дмитрий Вадимович</h3><h3>ЗАО «Ланит-Терком», СПбГУ</h3>
+</section>
+
+<section id="chapter-movement" class="chapter">
+<section id="movement-movement" class="slide" data-background="images/movement.gif" data-has-notes="false">
+<h1 style="color: red;">NoSQL Movement</h1>
+</section>
+
+<section id="movement-history" class="slide" data-has-notes="false">
+<h2>Термин</h2><ul>
+<li><p>Впервые встречается в 1998 применительно к реляционной СУБД без поддержки SQL</p>
+</li>
+<li><p>Снова появляется только в 2009 году (современное применение весьма новое)</p>
+<ul>
+<li>Eric Evans (Rackspace): <em>The whole point of seeking alternatives is that you need to solve a problem that relational databases are a bad ﬁt for</em></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="movement-motives_1" class="slide" data-has-notes="false">
+<h2>Мотивы I</h2><ul>
+<li><p><strong>Снижение излишней сложности</strong></p>
+<p>РСУБД очень функциональны и строги (напр., ACID). Для конкретных приложений в этом часто нет необходимости.</p>
+</li>
+<li><p><strong>Производительность</strong></p>
+<p>Часто выше, чем у РСУБД</p>
+</li>
+<li><p><strong>Масштабируемость и неприхотливость</strong></p>
+<p>  У РСУБД тяжело с:</p>
+<ol>
+<li><p>Масштабированием данных</p>
+</li>
+<li><p>Производительностью центрального сервера (мощного и дорогого)</p>
+</li>
+<li><p>Негибкой схемой</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Исключение дорогого ORM</strong></p>
+<p>Особенно у документо-ориентированных СУБД — модель данных в базе очень блиска к модели данных бизнес-логики</p>
+</li>
+<li><p><strong>Упрощение развёртывания кластеров</strong></p>
+<p>У реляцонных действительно сложно</p>
+</li>
+</ul>
+</section>
+
+<section id="movement-motives_2" class="slide" data-has-notes="true">
+<h2>Мотивы II</h2><ul>
+<li><p><strong>Отказ от излишней надёжности в пользу производительности</strong></p>
+<p>Shalom: <em>Different scenarios where applications would be willing to compromise reliability for better performance</em></p>
+</li>
+<li><p><strong>Отказ от ошибочного подхода <em>One size ﬁts it all</em> </strong></p>
+<p>Объём данных часто непредсказуем, и, в основном, растёт. А вместе с ним и требования к производительности.</p>
+</li>
+<li><p><strong>Нецелесообразность децентрализации данных с изначально централизованной моделью: миф или реальность?</strong></p>
+<ul>
+<li><p>Трудно, но целесообразность определяется необходимостью</p>
+</li>
+<li><p>Лучше изначально модель хранения данных проектировать с прицелом на распределённость в будущем</p>
+</li>
+<li><p>Луцив Д.В.: <em>И не только модель хранения данных, но и код. Хотя бы на многопоточность.</em></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Языки программирования и библиотеки</strong></p>
+<ul>
+<li><p>Программы $\rightarrow$ SQL — (N)Hibernate, Entity Framework, RoR Active Record, ...</p>
+</li>
+<li><p>NoSQL $\rightarrow$ Программы — CouchDB, MongoDB, ...</p>
+</li>
+</ul>
+</li>
+</ul><aside class="notes"><p>Вспомним ещё какие-нибудь языки/библиотеки?</p></aside>
+</section>
+
+<section id="movement-motives_3" class="slide" data-has-notes="true">
+<h2>Мотивы III</h2><ul>
+<li><p><strong>Актуальное для облачных платформ</strong></p>
+<ul>
+<li><p>Настолько хорошая масштабируемость, насколько возможно</p>
+<ul>
+<li>Хорошо бы вообще автоматическая</li>
+</ul>
+</li>
+<li><p>Желательно небольшой оверхед при администрировании</p>
+</li>
+</ul>
+<p>В облаках хорошо работают:</p>
+<ul>
+<li><p>Data Warehouse, заточенные под Map-Reduce</p>
+</li>
+<li><p>Хранилища ключ-значение</p>
+</li>
+<li><p>М.б. и что-то посложнее, но не настолько сложное, как RDBMS</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Кеширование и ввод/вывод вообще</strong></p>
+<ul>
+<li><p>РСУБД (особенно хорошо нормализованные) выполняют сложные операции при чтении $\implies$ для нагруженных сайтов не очень,</p>
+<p>а у NoSQL данные представлены уже в агрегированном виде</p>
+</li>
+<li><p>Приложения <em>ждут</em> ввода/вывода, это типично для протоколов и драйверов РСУБД</p>
+</li>
+</ul>
+</li>
+</ul><aside class="notes"><p>Вообще неблокирующий ввод/вывод м.б. и для РСУБД, просто традиционно не так часто встречается</p></aside>
+</section>
+
+<section id="movement-motives_4" class="slide" data-has-notes="true">
+<h2>Мотивы IV</h2><p><strong>James Gosling: говорит нам</strong>:</p>
+<p><em>Essentially everyone, when they ﬁrst build a distributed application, makes the following eight assumptions. All prove to be false in the long run and all cause big trouble and painful learning experiences.</em></p>
+<ol>
+<li><p><em>The network is reliable</em></p>
+</li>
+<li><p><em>Latency is zero</em></p>
+</li>
+<li><p><em>Bandwidth is inﬁnite</em></p>
+</li>
+<li><p><em>The network is secure</em></p>
+</li>
+<li><p><em>Topology doesn’t change</em></p>
+</li>
+<li><p><em>There is one administrator</em></p>
+</li>
+<li><p><em>Transport cost is zero</em></p>
+</li>
+<li><p><em>The network is homogeneous</em></p>
+</li>
+</ol>
+<p><strong><a href="https://en.wikipedia.org/wiki/Michael_Stonebraker">Michael Stonebraker</a></strong></p>
+<p>Тоже на самом деле очень много что говорит, подробнее об этом — Christof Strauch в <a href="http://www.christof-strauch.de/nosqldbs.pdf">NoSQL Databases</a>.</p><aside class="notes"><p>!</p></aside>
+</section>
+
+<section id="movement-nosql_or_norel" class="slide" data-has-notes="true">
+<h2>А NoSQL ли? И что это означает?</h2><p>А много ли мы сказали про SQL?</p>
+<p>Strozzi: <a href="http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql/Home%20Page"><em>Current NoSQL movement departs from the relational model altogether; it should therefore have been called more appropriately &#39;NoREL&#39;, referring to &#39;No Relational&#39;</em></a></p>
+<p><em>Not only SQL</em> — ничего конкретного, скорее вектор развития IT</p><aside class="notes"><p>!</p></aside>
+</section>
+</section>
+
+<section id="chapter-acidvsbase" class="chapter">
+<section id="acidvsbase-acid_plus_base" class="slide" data-background="images/acid-vs-base.gif" data-has-notes="false">
+<h1>ACID vs BASE</h1>
+</section>
+
+<section id="acidvsbase-acid_vs_base" class="slide" data-has-notes="false">
+<h2>ACID vs BASE I</h2><h3>ACID</h3><ul>
+<li><p>Atomicity — Атомарность</p>
+</li>
+<li><p>Consistency — Согласованность</p>
+</li>
+<li><p>Isolation — Изолированность</p>
+</li>
+<li><p>Durability — Долговечность</p>
+</li>
+</ul>
+<h3>BASE</h3><p>Согласованность в конечном счёте</p>
+<ul>
+<li><p>Basically Available</p>
+</li>
+<li><p>Soft state</p>
+</li>
+<li><p>Eventual consistency</p>
+</li>
+</ul>
+<p>Основной принцип: <em>в отсутствии изменений данных, через какой-то промежуток времени после последнего обновления («в конечном счёте») все запросы будут возвращать последнее обновлённое значение</em></p>
+<p>Пример — DNS.</p>
+</section>
+
+<section id="acidvsbase-strong_eventual_consistency" class="slide" data-has-notes="false">
+<h2>Сильная согласованность в конечном счёте</h2><p>После получения одинаковых (неупорядоченных) множеств обновлений все узлы одинаково отвечают на запросы</p>
+</section>
+
+<section id="acidvsbase-again_acid_vs_base" class="slide" data-has-notes="false">
+<h2>ACID vs BASE II</h2><table>
+
+<thead><tr>
+
+<th>ACID</th><th>BASE</th>
+
+</tr></thead>
+
+<tbody><tr>
+
+<td>Strong consistency<br/>
+
+Isolation<br/>
+
+Focus on “commit”<br/>
+
+Nested transactions<br/>
+
+Availability?<br/>
+
+Conservative (pessimistic)<br/>
+
+Diffcult evolution (e.g. schema)
+
+</td>
+
+<td>
+
+Weak consistency – stale data OK<br/>
+
+Availability ﬁrst<br/>
+
+Best effort<br/>
+
+Approximate answers OK<br/>
+
+Aggressive (optimistic)<br/>
+
+Simpler!<br/>
+
+Faster<br/>
+
+Easier evolution
+
+</td>
+
+</tr></tbody>
+
+</table>
+</section>
+</section>
+
+<section id="chapter-consensus" class="chapter">
+<section id="consensus-pc" class="slide" data-background="images/consensus.gif" data-has-notes="false">
+<h1>Консенсус</h1>
+</section>
+
+<section id="consensus-paxos_1" class="slide" data-has-notes="false">
+<h2>Paxos</h2><p>Протокол достижения консенсуса в распределённой системе. <a href="https://en.wikipedia.org/wiki/Leslie_Lamport">Лесли Лэмпорт</a>, 1989.</p>
+<p>Популярно (вероятно просто хороший вдумчивый и слегка дополненный перевод Википедии) <a href="https://habrahabr.ru/post/222825/">здесь</a>.</p>
+</section>
+
+<section id="consensus-paxos_2" class="slide" data-has-notes="false">
+<h2>Paxos: Роли</h2><ul>
+<li><p><strong>Client</strong> – клиент, может отправить запрос и получить на него ответ</p>
+</li>
+<li><p><strong>Proposer</strong> – компонент, отвечает за организацию процесса голосования</p>
+</li>
+<li><p><strong>Acceptor</strong> – компонент, имеет право голоса за принятие или отклонение конкретного предложения от Proposer</p>
+</li>
+<li><p><strong>Learner</strong> – компонент, запоминает принятое решение</p>
+</li>
+</ul>
+</section>
+
+<section id="consensus-paxos_3" class="slide" data-has-notes="false">
+<h2>Paxos: Базовый алгориѳм</h2><ul>
+<li><p><strong>Prepare («предложение»)</strong> Proposer генерирует «предложение» с порядковым номером $N$ и отправляет его всем acceptor. Для каждого из последующих «предложений» номер $N$ должен быть больше выбранного ранее данным proposer.</p>
+</li>
+<li><p><strong>Promise («обещание»)</strong> Каждый acceptor получает «предложение» с порядковым номером $N$ и значением $V$. Если номер «предложения» больше чем все принятые ранее данным acceptor, он обязан ответить на это сообщение «обещанием» не принимать более «предложений» с порядковым номером меньше $N$. Если данный acceptor уже принимал какое-либо «предложение», он должен вернуть номер $N_i$ этого «предложения» и принятое значение $V_i$, в противном случае он возвращает пустое значение.</p>
+</li>
+<li><p><strong>Accept! («принять»)</strong> Если proposer получил «обещания» от кворума acceptor, он считает запрос готовым к дальнейшей обработке. В случае, если с «обещаниями» от acceptor пришли также значения $N_i$ и $V_i$, proposer выбирает $V$ равное значению $V_i$ «обещания» с максимальным $N_i$. Затем proposer отправляет запрос «принять» всем acceptor, который содержит значения $N$ и $V$.</p>
+</li>
+<li><p><strong>Accepted («принято»)</strong> Когда acceptor получает сообщение «принять» со значениями $N$ и $V$, он принимает его только в том случае, если ранее он не «обещал» принимать предложения с номерами строго больше $N$. В противном случае он принимает значение и отвечает сообщением «принято» всем learner.</p>
+</li>
+<li><p>Learner получает сообщение «принято» со значением $V$ и запоминает его.</p>
+</li>
+</ul>
+</section>
+
+<section id="consensus-raft_1" class="slide" data-has-notes="false">
+<h2>Raft</h2><p>Diego Ongaro, <a href="https://en.wikipedia.org/wiki/John_Ousterhout">John Ousterhout</a>: <em>Raft is a consensus algorithm that is designed to be easy to understand</em> Stanford University, 2013</p>
+<p><img src="images/annie-solo.png" height="800px" style="display: block; margin: 0 auto;"/></p>
+<ul>
+<li><p><a href="http://thesecretlivesofdata.com/raft/">Подробно, популярно и с мультиком</a></p>
+</li>
+<li><p><a href="https://raft.github.io/">Популярно и интерактивно про голосование</a></p>
+</li>
+<li><p>[По-русски] <a href="http://blog.egrik.ru/2015/10/raft.html">здесь</a></p>
+</li>
+</ul>
+</section>
+</section>
+
+<section id="chapter-spieces" class="chapter">
+<section id="spieces-spieces" class="slide" data-background="images/loshad-przhevalskogo-1.jpg" data-has-notes="false">
+<h1 style="color: red;">Виды популярных СУБД</h1>
+</section>
+
+<section id="spieces-db-types-briefly" class="slide" data-has-notes="false">
+<h2>Кратко о популярных типах СУБД</h2><ul>
+<li><p><strong>Реляционные</strong></p>
+<p>Типично хранение по строкам или по строкам из коротких отрезков колонок</p>
+</li>
+<li><p><strong>Ключ-значение</strong></p>
+<p>Хеш без знаний о структуре значений</p>
+</li>
+<li><p><strong>Документо-ориентированные</strong></p>
+<p>Структурированные объекты с индексами по полям</p>
+</li>
+<li><p><strong>Колоночно-ориентированные</strong></p>
+<p>Могут быть и реляционными, и SQL; хранят данные по колонкам $\implies$ быстрее поиск и анализ на клиенте, эффективнее сжатие, но тяжелее со сложными запросами</p>
+</li>
+</ul>
+</section>
+</section>
+
+<section id="chapter-cap" class="chapter">
+<section id="cap-cap" class="slide" data-background="images/cap-bg.jpg" data-has-notes="false">
+<h1>CAP</h1>
+</section>
+
+<section id="cap-content" class="slide" data-has-notes="false">
+<h2>Теорема CAP</h2><p>Эвристическое утверждение. <a href="https://en.wikipedia.org/wiki/Eric_Brewer_(scientist%29">Eric Brewer</a>, Berkeley, 1998–1999</p>
+<p>В любой реализации распределённых вычислений возможно обеспечить не более двух из трёх следующих свойств:</p>
+<ul>
+<li><p><strong>Согласованность данных (consistency)</strong> — во всех вычислительных узлах в один момент времени данные не противоречат друг другу;</p>
+</li>
+<li><p><strong>Доступность (availability)</strong> — любой запрос к распределённой системе завершается корректным откликом;</p>
+</li>
+<li><p><strong>Устойчивость к разделению (partition tolerance)</strong> — расщепление распределённой системы на несколько изолированных секций не приводит к некорректности отклика от каждой из секций</p>
+</li>
+</ul>
+</section>
+
+<section id="cap-explanation" class="slide" data-has-notes="false">
+<h2>Доказательство</h2><p><a href="images/10.1.1.67.6951.pdf">Доказательство</a></p>
+<ul>
+<li>Seth Gilbert, Nancy Lynch. Brewer&#39;s Conjecture and the Feasibility of Consistent Available Partition-Tolerant Web Services. In ACM SIGACT News, 2002</li>
+</ul>
+<p><a href="http://mwhittaker.github.io/2014/08/16/illustrated-proof-cap-theorem/">Пояснение</a></p>
+</section>
+
+<section id="cap-databases" class="slide" data-has-notes="false">
+<h2>А что с нашими любимыми СУБД?</h2><p><img src="images/cap-theorem-bases.png" height="800px" style="display: block; margin: 0 auto;"/></p>
+</section>
+</section>
+
+<section id="chapter-pacelc" class="chapter">
+<section id="pacelc-pacelc" class="slide" data-has-notes="false">
+<h1>PACELC</h1><p><img src="images/dog.gif" height="800px" style="display: block; margin: 0 auto;"/></p>
+</section>
+
+<section id="pacelc-pacelc_1" class="slide" data-has-notes="false">
+<h2>PACELC</h2><p>Daniel J. Abadi, Yale University, 2010 (блог), 2012 (статья):</p>
+<p><em>In case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C)</em></p>
+<ul>
+<li><p><em>В случае с разделённой вычислительной системой можно выбирать между доступностью и согласованностью</em></p>
+</li>
+<li><p><em>В случае со связной и доступной — между допустимыми задержками и согласованностью</em></p>
+</li>
+</ul>
+</section>
+
+<section id="pacelc-pacelc_2" class="slide" data-has-notes="false">
+<h2>Чем плоха CAP</h2><p>Менее уместна, чем теорема MIT, также предлагающая выбрать 2/3:</p>
+<ul>
+<li><p>Диплом</p>
+</li>
+<li><p>Друзья</p>
+</li>
+<li><p>Сон</p>
+</li>
+</ul>
+<p>Явно намекает на приоритет доступности над согласованностью</p>
+<ul>
+<li><p><a href="http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf">Статья</a></p>
+</li>
+<li><p><a href="http://www.slideshare.net/abadid/cap-pacelc-and-determinism">Слайды</a></p>
+</li>
+</ul>
+</section>
+
+<section id="pacelc-databases" class="slide" data-has-notes="false">
+<h2><a href="https://en.wikipedia.org/wiki/PACELC_theorem#Database_PACELC_ratings">А что с нашими любимыми СУБД?</a></h2><table>
+
+<thead><tr>
+
+<th>DDBS</th>
+
+<th>P+A</th>
+
+<th>P+C</th>
+
+<th>E+L</th>
+
+<th>E+C</th>
+
+</tr></thead>
+
+<tbody><tr>
+
+<td>Dynamo</td>
+
+<td>Yes</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Cassandra</td>
+
+<td>Yes</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Riak</td>
+
+<td>Yes</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>VoltDB/H-Store</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td></td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>Megastore</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td></td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>MongoDB</td>
+
+<td style="color: red;">Yes</td>
+
+<td></td>
+
+<td></td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>PNUTS</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td style="color: red;">Yes</td>
+
+<td></td>
+
+</tr>
+
+</tbody></table>
+
+
+
+<p><img src="images/truth-of-cap-theorem-pacelc.jpg" height="400px" style="display: block; margin: 0 auto;"/></p>
+<!--
+
+* The default versions of Dynamo, Cassandra, and Riak are PA/EL systems: if a partition occurs, they give up consistency for availability, and under normal operation they give up consistency for lower latency.
+
+* Fully ACID systems such as VoltDB/H-Store and Megastore are PC/EC: they refuse to give up consistency, and will pay the availability and latency costs to achieve it. BigTable and related systems such as HBase are also PC/EC.    MongoDB can be classified as a PA/EC system. In the baseline case, the system guarantees reads and writes to be consistent.
+
+* PNUTS is a PC/EL system.
+
+-->
+</section>
+</section>
+
+<section id="thanks" class="slide" data-has-notes="false">
+<h1>Спасибо</h1>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/such-notes-print.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>
