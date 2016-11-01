@@ -45,7 +45,7 @@
 </tr>
 <tr>
 <td>MongoDB</td>
-<td>Yes</td>
+<td style="color: red;">Yes</td>
 <td></td>
 <td></td>
 <td>Yes</td>
@@ -54,12 +54,15 @@
 <td>PNUTS</td>
 <td></td>
 <td>Yes</td>
-<td>Yes</td>
+<td style="color: red;">Yes</td>
 <td></td>
 </tr>
 </tbody></table>
 
+<img src="images/truth-of-cap-theorem-pacelc.jpg" height="400px" style="display: block; margin: 0 auto;"/>
 
+<!--
 * The default versions of Dynamo, Cassandra, and Riak are PA/EL systems: if a partition occurs, they give up consistency for availability, and under normal operation they give up consistency for lower latency.
 * Fully ACID systems such as VoltDB/H-Store and Megastore are PC/EC: they refuse to give up consistency, and will pay the availability and latency costs to achieve it. BigTable and related systems such as HBase are also PC/EC.    MongoDB can be classified as a PA/EC system. In the baseline case, the system guarantees reads and writes to be consistent.
 * PNUTS is a PC/EL system.
+-->

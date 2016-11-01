@@ -8,4 +8,5 @@
 
 Явно намекает на приоритет доступности над согласованностью
 
-[Слайды Daniel Abadi](http://www.slideshare.net/abadid/cap-pacelc-and-determinism)
+* [Статья](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
+* [Слайды](http://www.slideshare.net/abadid/cap-pacelc-and-determinism)
