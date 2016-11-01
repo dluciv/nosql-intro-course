@@ -58,13 +58,14 @@
     * История
     * Суть
 2. ACID vs BASE, [О согласованности в конечном счёте](http://citforum.ru/gazeta/154/)
-3. «Теорема» [CAP](https://en.wikipedia.org/wiki/CAP_theorem)
+3. Консенсус в распределённых вычислительных системах
+4. «Теорема» [CAP](https://en.wikipedia.org/wiki/CAP_theorem)
     * Правда жизни
     * [«Доказательство»](http://mwhittaker.github.io/2014/08/16/illustrated-proof-cap-theorem/)
     * [Дискуссия](http://citforum.ru/gazeta/154/) и [критика](https://arxiv.org/abs/1509.05393)
-4. «Теорема» [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
+5. «Теорема» [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
 
-Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC).
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC) и [видеозапись занятия 01.11.2016](https://youtu.be/6tAG-OexfQI) (пункты 1..3 и начало 4 программы).
 
 ### Нереляционные СУБД
 1. Логические
