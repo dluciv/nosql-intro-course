@@ -29,3 +29,16 @@
 .reveal .slides {
 	text-align: justify;
 }
+
+
+@font-face {
+    font-family: 'TerminusBold';
+    src: url(../media/terminus-bold.ttf);
+}
+
+.reveal code {
+	font-family: TerminusBold, monospace;
+	line-height: 0.6;
+	font-weight: bolder;
+	font-size: 36px;
+}

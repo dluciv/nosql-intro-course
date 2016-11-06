@@ -1,3 +1,3 @@
 $background:images/cat-logic.jpg$
 
-<h1 style="color:yellow;">Логические СУБД</h1>
+<h1 style="color:yellow;">Дедуктивные СУБД</h1>

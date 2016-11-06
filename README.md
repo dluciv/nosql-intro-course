@@ -68,14 +68,12 @@
 Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC) и [видеозапись занятия 01.11.2016](https://youtu.be/6tAG-OexfQI) (пункты 1..3 и начало 4 программы).
 
 ### Нереляционные СУБД
-1. Логические
-2. Документо-ориентированные
+1. Графовые
+2. Логические
+3. Документо-ориентированные
     * XML — [Sedna](http://sedna.org/), [eXistdb](http://exist-db.org/exist/apps/homepage/index.html)
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
-3. Колоночные
-4. Ассоциативные
-5. Графовые
-6. Многопарадигменные
+4. Колоночные
 
 ### Паттерны и технологии
 Паттерны
@@ -107,7 +105,7 @@
 * CouchDB
 
 ### Андеграунд
-1. Добросовестность сервисов и лояльность пользователей; Совесть — лучший котнролёр; Что попало в интернет — остаётся там навсегда
+1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
 2. ZeroNet, FreeNet, IPFS
 3. «Правильные» мессенджеры — XMPP, Matrix, Tox...
 4. Blockchain и те, кто из него произошёл
@@ -133,4 +131,4 @@
    [Перевод](http://citforum.ru/gazeta/154/) С.Д. Кузнецова, ИСП РАН
 3. Seth Gilbert, Nancy Lynch. [Brewer's Conjecture and the Feasibility of Consistent Available Partition-Tolerant Web Services](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.1495). In ACM SIGACT News, 2002
 4. Daniel J. Abadi. [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), Yale University, 2012
-5. Ian Robinson, Jim Webber, Emil Eifrem. [Graph Databases](http://graphdatabases.com/)
+5. Ian Robinson, Jim Webber, Emil Eifrem. [Graph Databases](http://graphdatabases.com/), O'Reilly Media, 2013

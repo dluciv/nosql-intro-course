@@ -4,3 +4,4 @@ author="Луцив Д.В. <dluciv@dluciv.name>"
 description="Обзор парадигм NoSQL СУБД"
 suchNotes=true
 watch=true
+highlightTheme="Idea"
