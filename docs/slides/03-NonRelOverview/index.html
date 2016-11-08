@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Обзор парадигм NoSQL СУБД</title>
+
+    <meta name="description" content="Обзор парадигм NoSQL СУБД">
+    <meta name="author" content="Луцив Д.В. &lt;dluciv@dluciv.name&gt;">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/Idea.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="hello" class="slide" data-has-notes="false">
+<h2>Распределённая обработка информации и NoSQL СУБД</h2><h1>Обзор парадигм NoSQL СУБД</h1><h3>Луцив Дмитрий Вадимович</h3><h3>ЗАО «Ланит-Терком», СПбГУ</h3>
+</section>
+
+<section id="chapter-graph" class="chapter">
+<section id="graph-graph" class="slide" data-background="images/Vlad_Tepes_coloured_drawing.png" data-has-notes="false">
+<h1 style="color: yellow;">Графовые СУБД</h1>
+</section>
+
+<section id="graph-basics" class="slide" data-has-notes="false">
+<h2>Основы</h2><h3>Модель данных</h3><ul>
+<li><p>Узлы</p>
+<ul>
+<li>Значения</li>
+</ul>
+</li>
+<li><p>Дуги</p>
+<ul>
+<li>Значения (необязательно)</li>
+</ul>
+</li>
+</ul>
+<p>Типизация обычно динамическая</p>
+<h3>Языки</h3><p>На примере Neo4j</p>
+<ul>
+<li><p>Описания базы знаний</p>
+</li>
+<li><p>Описания служебных структур, например, индексов</p>
+</li>
+<li><p>Запросов</p>
+<ul>
+<li><p>Часто наглядно изображают графы</p>
+</li>
+<li><p><em>Включают образцы, для сопоставления с путями произвольной длины</em></p>
+</li>
+<li><p>Могут использовать алгоритмы из теории графов</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="graph-dedication" class="slide" data-has-notes="false">
+<h2>Особенности</h2><ul>
+<li><p>Структура произвольной глубины</p>
+</li>
+<li><p>Связи хранят больше информации, нежели атрибуты</p>
+</li>
+</ul>
+<h2>Области</h2><ul>
+<li><p>Социальные графы</p>
+</li>
+<li><p>Лингвистические базы данных</p>
+<ul>
+<li>Прочие <a href="https://en.wikipedia.org/wiki/Ontology_(information_science%29">онтологии</a></li>
+</ul>
+</li>
+<li><p>Маршрутные базы данных</p>
+</li>
+</ul>
+</section>
+
+<section id="graph-malinovski" class="slide" data-has-notes="false">
+<h2>Слайды Ильи Малиновского</h2><p><a href="media/graph-databases.pdf">Здесь</a></p>
+<p><a href="https://gist.github.com/kvangundy/c43ade7d259a77fe49a8">Пример с Хоббитом</a></p>
+</section>
+</section>
+
+<section id="chapter-logic" class="chapter">
+<section id="logic-logic" class="slide" data-background="images/cat-logic.jpg" data-has-notes="false">
+<h1 style="color:yellow;">Дедуктивные СУБД</h1>
+</section>
+
+<section id="logic-prolog" class="slide" data-has-notes="false">
+<h2>Prolog</h2><h3>База фактов</h3><pre><code><span class="hljs-function"><span class="hljs-title">parent</span><span class="hljs-params">(<span class="hljs-string">'Шарик'</span>, <span class="hljs-string">'Бобик'</span>)</span></span>.
+
+<span class="hljs-function"><span class="hljs-title">parent</span><span class="hljs-params">(<span class="hljs-string">'Жучка'</span>, <span class="hljs-string">'Бобик'</span>)</span></span>.
+</code></pre><h3>База правил</h3><pre><code><span class="hljs-selector-tag">brother_or_sister</span>(A, B) <span class="hljs-selector-pseudo">:-</span>
+
+  <span class="hljs-selector-tag">parent</span>(X, A),
+
+  <span class="hljs-selector-tag">parent</span>(X, B).
+</code></pre><h3>Отсечение</h3><pre><code><span class="hljs-selector-tag">sibling</span>(A, B) <span class="hljs-selector-pseudo">:-</span>
+
+  <span class="hljs-selector-tag">parent</span>(X, A),
+
+  !,
+
+  <span class="hljs-selector-tag">parent</span>(X, B).
+</code></pre><h3>Отсечение, ещё пример</h3><pre><code><span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(X,Y,Z)</span></span> :-
+
+  X =&lt; Y,
+
+  !,
+
+  Y = Z.
+
+<span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(X,Y,X)</span></span>.
+</code></pre>
+</section>
+
+<section id="logic-datalog" class="slide" data-has-notes="false">
+<h2>Datalog</h2><h3>Базы фактов и правил</h3><p>Так же, но без</p>
+<ul>
+<li><p>отсечения</p>
+</li>
+<li><p>сложных термов вида <code>p(a)</code> в значениях переменных</p>
+</li>
+</ul>
+<h3>Отсутсвие отсечения</h3><p>Делает язык полностью декларативным, облегчает оптимизацию и генерацию плана выполнения запроса</p>
+<h3>Примеры реализации</h3><ul>
+<li><p><a href="http://iris-reasoner.org/demo">IRIS</a></p>
+</li>
+<li><p><a href="http://ysangkok.github.io/mitre-datalog.js/wrapper.html">MITRE</a></p>
+</li>
+</ul>
+</section>
+
+<section id="logic-prolog_cg" class="slide" data-has-notes="false">
+<h2>Prolog+CG</h2><p>Пример:</p>
+<pre><code>    <span class="hljs-comment">[Man : x]</span>&lt;-agnt-<span class="hljs-comment">[Begin]</span>-srce-&gt;<span class="hljs-comment">[Proposition = 
+
+        <span class="hljs-comment">[Person]</span>&lt;-pat-<span class="hljs-comment">[Look]</span>-dest-&gt;<span class="hljs-comment">[Person : x]</span> ]</span>
+</code></pre><p>Напоминает что-то? =)</p>
+</section>
+</section>
+
+<section id="chapter-key-value" class="chapter">
+<section id="key-value-key-value" class="slide" data-background="images/dropboxKV.jpg" data-has-notes="false">
+<h1 style="color: red;">Ключ-значение</h1>
+</section>
+
+<section id="key-value-bdb" class="slide" data-has-notes="false">
+<h2>Berkley DB</h2><ul>
+<li><p>1980-е</p>
+</li>
+<li><p>встраиваемая</p>
+<ul>
+<li>но многопоточная/многопроцессная</li>
+</ul>
+</li>
+</ul>
+<p>Примеры использующих систем</p>
+<ul>
+<li><p>Subversion</p>
+</li>
+<li><p>Bitcoin</p>
+</li>
+<li><p>Postfix</p>
+</li>
+<li><p>MySQL (в качестве одной из альтарнатив)</p>
+</li>
+</ul>
+</section>
+
+<section id="key-value-bdb-samples" class="slide" data-has-notes="false">
+<h2>Примет Berkley DB (Питон)</h2><pre><code>    <span class="hljs-class"><span class="hljs-keyword">data</span> = mydb.get(<span class="hljs-title">key</span>)</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-class"><span class="hljs-keyword">data</span>:</span>
+
+        doSomething(<span class="hljs-class"><span class="hljs-keyword">data</span>)</span>
+</code></pre><p>или</p>
+<pre><code>    <span class="hljs-keyword">rec</span> = <span class="hljs-built_in">cursor</span>.<span class="hljs-keyword">first</span>()
+
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">rec</span>:
+
+        <span class="hljs-keyword">print</span>(<span class="hljs-keyword">rec</span>)
+
+        <span class="hljs-keyword">rec</span> = <span class="hljs-built_in">cursor</span>.<span class="hljs-keyword">next</span>()
+</code></pre>
+</section>
+
+<section id="key-value-voldemort" class="slide" data-has-notes="false">
+<h2>Project Voldemort</h2><p>Факты</p>
+<ul>
+<li><p>2009, LinkedIn</p>
+</li>
+<li><p>AP в терминах CAP</p>
+</li>
+</ul>
+<p>Свойства</p>
+<ul>
+<li><p>Автоматическая репликация</p>
+</li>
+<li><p>Автоматическое разделение</p>
+</li>
+<li><p>Механизмы для сериализации сложных ключей и значений (но не в «ядре», плагины)</p>
+</li>
+<li><p>Механизмы для использования разных сисиетм хранения</p>
+</li>
+<li><p>Версионирование</p>
+</li>
+<li><p>Оптимизирована для SSD</p>
+</li>
+</ul>
+<p>Примеры использующих систем</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/2254690/is-anyone-outside-of-linkedin-using-voldemort">Кто кроме LinkedIn?..</a> =)</li>
+</ul>
+</section>
+
+<section id="key-value-voldemort-sample" class="slide" data-has-notes="false">
+<h2>Пример Voldemort (Java)</h2><pre><code><span class="hljs-built_in">String</span> bootstrapUrl = <span class="hljs-string">"tcp://localhost:6666"</span>;
+
+StoreClientFactory <span class="hljs-keyword">factory</span> = <span class="hljs-keyword">new</span> SocketStoreClientFactory(
+
+    <span class="hljs-keyword">new</span> ClientConfig().setBootstrapUrls(bootstrapUrl)
+
+);
+
+StoreClient&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; client =
+
+    <span class="hljs-keyword">factory</span>.getStoreClient(<span class="hljs-string">"my_store_name"</span>);
+</code></pre><!-- -->
+<pre><code><span class="hljs-comment">// do some random pointless operations</span>
+
+Versioned&lt;String&gt; <span class="hljs-keyword">value</span> = client.<span class="hljs-keyword">get</span>(<span class="hljs-string">"some_key"</span>);
+
+<span class="hljs-keyword">value</span>.setObject(<span class="hljs-string">"some_value"</span>);
+
+client.put(<span class="hljs-string">"some_key"</span>, <span class="hljs-keyword">value</span>);
+</code></pre>
+</section>
+</section>
+
+<section id="chapter-xml" class="chapter">
+<section id="xml-xml" class="slide" data-background="images/XML_everywhere.jpg" data-has-notes="false">
+<h1 style="color:yellow;">X M L</h1>
+
+
+
+<h2 style="color:cyan;">XML Everywhere</h2>
+</section>
+
+<section id="xml-why-xml" class="slide" data-has-notes="false">
+<h2>Зачем?</h2><ul>
+<li><p>Everywhere =)</p>
+<ul>
+<li><p>Очень корпоративно™</p>
+</li>
+<li><p>API, стандартные форматы передачи данных</p>
+</li>
+<li><p>Популярен для метаданных</p>
+<ul>
+<li>Semantic web в том числе</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Хорош для разреженных данных, древовидных</p>
+</li>
+<li><p>Сравнительно человекочитаем</p>
+</li>
+</ul>
+</section>
+
+<section id="xml-xml-enabled" class="slide" data-has-notes="false">
+<h2>XML-Enabled (реляционные)</h2><h3>Варианты</h3><ol>
+<li><p>XML хранится при помощи CLOB (Character Large Object)</p>
+</li>
+<li><p>XML хранится по таблицам в соответствии с схемой</p>
+</li>
+<li><p>Для XML заводится специальный домен в соответствии со <a href="http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=53686">стандартом ISO 9075-14</a></p>
+</li>
+</ol>
+<h3>Пример — <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.xml.doc/doc/c0022308.html">поддержка XML IBM DB2</a></h3><ul>
+<li><p>Конечно же поддерживается КОБОЛом =)</p>
+</li>
+<li><p>Позволяет создавать индексы</p>
+</li>
+<li><p>Знает XML-схему</p>
+</li>
+<li><p><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_9.7.0/com.ibm.db2.luw.xml.doc/doc/c0023896.html">Запросы к XML d SQL</a></p>
+</li>
+</ul>
+<pre><code>    <span class="hljs-keyword">select</span>
+
+      <span class="hljs-keyword">id</span>, vol, <span class="hljs-keyword">xmlquery</span>(<span class="hljs-string">'$j/name'</span>, <span class="hljs-keyword">passing</span> journal <span class="hljs-keyword">as</span> <span class="hljs-string">"j"</span>) <span class="hljs-keyword">as</span> <span class="hljs-keyword">name</span>
+
+    <span class="hljs-keyword">from</span>
+
+      journals
+
+    <span class="hljs-keyword">where</span> 
+
+      <span class="hljs-keyword">xmlexists</span>(<span class="hljs-string">'$j[licence="CreativeCommons"]'</span>, <span class="hljs-keyword">passing</span> journal <span class="hljs-keyword">as</span> <span class="hljs-string">"j"</span>)
+</code></pre>
+</section>
+
+<section id="xml-xml-native" class="slide" data-has-notes="false">
+<h2>Урождённые XML</h2><h3>Кто они?</h3><ul>
+<li><p>NoSQL</p>
+</li>
+<li><p>Документо-ориентированные</p>
+<ul>
+<li>Только документы большие, и иерархические ссылки эффективные</li>
+</ul>
+</li>
+</ul>
+<h3>Языки</h3><ul>
+<li>XPath, пример<strong>ы</strong></li>
+</ul>
+<pre><code>    bookstore/<span class="hljs-regexp">/book/excerpt</span><span class="hljs-regexp">//emph</span>
+
+    (book/author)[last()]
+
+    book[<span class="hljs-regexp">/bookstore/</span><span class="hljs-variable">@specialty</span>=<span class="hljs-variable">@style</span>]
+</code></pre><ul>
+<li>XQuery, пример</li>
+</ul>
+<pre><code>    <span class="hljs-keyword">for</span> $x <span class="hljs-keyword">in</span> doc(<span class="hljs-string">"books.xml"</span>)/bookstore/book
+
+    <span class="hljs-keyword">where</span> $x/price&gt;<span class="hljs-number">30</span>
+
+    <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> $x/title
+
+    <span class="hljs-keyword">return</span> $x/title
+</code></pre><ul>
+<li>XUpdate (менее популярен)</li>
+</ul>
+</section>
+
+<section id="xml-sedna" class="slide" data-has-notes="false">
+<h2>Sedna</h2><ul>
+<li><p><a href="http://sedna.org/">Сама</a></p>
+</li>
+<li><p>Разработчики — <a href="http://www.ispras.ru/groups/modis/">группа информационных систем</a> <a href="http://www.ispras.ru/">ИСП РАН</a></p>
+</li>
+<li><p>Умеет быть XML-прокси для реляционных БД</p>
+</li>
+<li><p>Поддерживает смешанную схему (статическую и т.н. <a href="http://www.ispras.ru/en/publications/descriptive_schema_driven_xml_storage.pdf">Descriptive Schema</a>)</p>
+</li>
+<li><p>Тригеры, ACID, много чего ещё</p>
+</li>
+</ul>
+</section>
+</section>
+
+<section id="chapter-json" class="chapter">
+<section id="json-json" class="slide" data-background="images/clippy.jpg" data-has-notes="false">
+<h1 style="color: red;">Документо-ориентированные JSON-СУБД</h1>
+</section>
+
+<section id="json-basics" class="slide" data-has-notes="false">
+<h2>Основы</h2><h3>Модель данных</h3><ul>
+<li><p>Объекты JSON</p>
+</li>
+<li><p>Опционально — индексы по полям</p>
+</li>
+</ul>
+<h3>Аналитические возможности</h3><p>Хороший тон — поддерживать Map-Reduce (о нём позже)</p>
+</section>
+
+<section id="json-couchdb1" class="slide" data-has-notes="false">
+<h2>CouchDB</h2><ul>
+<li><p>Схемы нет</p>
+</li>
+<li><p>Есть индексы</p>
+</li>
+<li><p>Написана на Erlang</p>
+</li>
+<li><p>Поддерживает репликацию</p>
+</li>
+<li><p>Поддерживает <a href="http://docs.couchdb.org/en/2.0.0/cluster/sharding.html">шардинг</a></p>
+<ul>
+<li><p>Строится (заранее, дальше не расширяется) специальный индекс по диапазонам значений поля</p>
+</li>
+<li><p>Классы этого индекса разбивают данный по локальным хранилищам, которые <em>вручную</em> можно переносить на реплики</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="json-couchdb2" class="slide" data-has-notes="false">
+<h2>CouchDB</h2><ul>
+<li><p>Высокая производительность</p>
+</li>
+<li><p>Развитый язык (на самом деле не язык) запросов</p>
+<ul>
+<li><p>На самом деле его вообще нет, а есть View и JavaScript или Erlang</p>
+<ul>
+<li>И Map-Reduce с описанием на JavaScript или Erlang</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="json-couchdb3" class="slide" data-has-notes="false">
+<h2>CouchDB: пример запроса (view)</h2><pre><code>function find_users_whose_last_names_start_with(<span class="hljs-keyword">db</span>, <span class="hljs-keyword">query</span>) {
+
+    <span class="hljs-keyword">var</span> matches;
+
+    matches = <span class="hljs-keyword">db</span>.<span class="hljs-keyword">view</span>('users/last_names',
+
+                      { startkey: <span class="hljs-keyword">query</span>,
+
+                        endkey:   <span class="hljs-keyword">query</span> + <span class="hljs-string">"\u9999"</span> });
+
+    <span class="hljs-keyword">return</span> matches.rows.map(dot('value'));
+
+}
+</code></pre>
+</section>
+
+<section id="json-mongodb1" class="slide" data-has-notes="false">
+<h2>MongoDB</h2><ul>
+<li><p>Схемы нет</p>
+</li>
+<li><p>Есть индексы</p>
+</li>
+<li><p>Есть запросы по значениям [вложенных] полей</p>
+</li>
+<li><p>Написана на С++</p>
+</li>
+<li><p>Хранит данные в формате BSON в memory-mapped-файле</p>
+<ul>
+<li><p>Закладывается на оптимизацию виртуальной памяти ОС</p>
+</li>
+<li><p>$\implies$ на 32-битных машинах базы $\le$ 2 ГиБ</p>
+</li>
+</ul>
+</li>
+<li><p>Поддерживает репликацию (довольно много вариантов настройки кластера)</p>
+</li>
+<li><p>Поддерживает шардинг</p>
+<ul>
+<li><a href="http://www.slideshare.net/profyclub_ru/mongodb-henrik-ingo-mongodb?ref=http://www.highload.ru/2014/abstracts/1530.html">Строится подобие индекса по диапазонам ключа</a></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="json-mongodb2" class="slide" data-has-notes="false">
+<h2>MongoDB: основные свойства</h2><ul>
+<li><p>Высокая производительность</p>
+</li>
+<li><p>Развитый язык (на самом деле не язык) запросов</p>
+<ul>
+<li><p>В т.ч. <a href="https://docs.mongodb.com/manual/core/aggregation-pipeline/">агрегирование</a></p>
+<ul>
+<li>И Map-Reduce с описанием на JavaScript</li>
+</ul>
+</li>
+<li><p>Текстовый поиск <code>db.stores.find( { $text: { $search: &quot;java coffee shop&quot; } } )</code></p>
+</li>
+<li><p><a href="https://docs.mongodb.com/manual/tutorial/geospatial-tutorial/">Индексирование и запросы по геоиду</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="json-mongodb3" class="slide" data-has-notes="false">
+<h2>MongoDB: пример запроса</h2><pre><code>x2 = db.contact.aggregate([
+
+     { $match: { <span class="hljs-string">"hiredate"</span>: {<span class="hljs-string">"$lt"</span>: new ISODate(<span class="hljs-string">"20130601"</span>) }}},
+
+     { $unwind: <span class="hljs-string">"$phones"</span>},
+
+     { $group: { <span class="hljs-string">"_id"</span>: <span class="hljs-string">"$phones.type"</span>,
+
+                 <span class="hljs-string">"n"</span>: {$sum: <span class="hljs-number">1</span>},
+
+                 <span class="hljs-string">"who"</span>: {$push: <span class="hljs-string">"$name"</span>},
+
+               }},
+
+     { $match: { <span class="hljs-string">"n"</span>: {<span class="hljs-string">"$gt"</span>: <span class="hljs-number">1</span>}} },
+
+     { $sort: { <span class="hljs-string">"n"</span>: -<span class="hljs-number">1</span>, <span class="hljs-string">"_id"</span>: <span class="hljs-number">1</span>} }
+
+     ]);
+
+x2.forEach(<span class="hljs-keyword">function</span>(r) { printjson(r); });
+</code></pre>
+</section>
+</section>
+
+<section id="chapter-column" class="chapter">
+<section id="column-column" class="slide" data-background="images/palmira.jpg" data-has-notes="false">
+<h1 style="color: red;">Колоночно-ориентированные СУБД</h1>
+</section>
+
+<section id="column-benefits" class="slide" data-has-notes="false">
+<h2>История</h2><p>TAXIR, 1969 — биологическая, встраиваемая (вообще в 1969 встраиваемые от не встраиваемых тяжело было отделить)</p>
+<h2>Преимущества</h2><ul>
+<li><p>Сжатие</p>
+<ul>
+<li>Сортировка помогает</li>
+</ul>
+</li>
+<li><p>Быстрый поиск</p>
+</li>
+<li><p>Быстрая аналитика</p>
+</li>
+</ul>
+</section>
+
+<section id="column-examples" class="slide" data-has-notes="false">
+<h2>Примеры</h2><ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Apache_Parquet">Apache Parquet</a></p>
+<ul>
+<li><p>Хорошее сжатие колонок</p>
+</li>
+<li><p>Интеграция в Hadoop</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Pivotal_Greenplum_Database">Pivotal Greenplum</a></p>
+<ul>
+<li>На основе PostgreSQL</li>
+</ul>
+</li>
+</ul>
+<p>Обе реляционные</p>
+</section>
+</section>
+
+<section id="thanks" class="slide" data-has-notes="false">
+<h1>Спасибо</h1>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/such-notes-print.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>
