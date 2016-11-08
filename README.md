@@ -70,10 +70,11 @@
 ### Нереляционные СУБД
 1. Графовые
 2. Логические
-3. Документо-ориентированные
+3. Ключ-значение
+4. Документо-ориентированные
     * XML — [Sedna](http://sedna.org/), [eXistdb](http://exist-db.org/exist/apps/homepage/index.html)
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
-4. Колоночные
+5. Колоночные
 
 ### Паттерны и технологии
 Паттерны
