@@ -110,31 +110,29 @@
 </section>
 
 <section id="logic-prolog" class="slide" data-has-notes="false">
-<h2>Prolog</h2><h3>База фактов</h3><pre><code><span class="hljs-function"><span class="hljs-title">parent</span><span class="hljs-params">(<span class="hljs-string">'Шарик'</span>, <span class="hljs-string">'Бобик'</span>)</span></span>.
+<h2>Prolog</h2><h3>База фактов</h3><pre><code>родитель(<span class="hljs-string">'Жучка'</span>,<span class="hljs-string">'Шарик'</span>).
 
-<span class="hljs-function"><span class="hljs-title">parent</span><span class="hljs-params">(<span class="hljs-string">'Жучка'</span>, <span class="hljs-string">'Бобик'</span>)</span></span>.
-</code></pre><h3>База правил</h3><pre><code><span class="hljs-selector-tag">brother_or_sister</span>(A, B) <span class="hljs-selector-pseudo">:-</span>
+родитель(<span class="hljs-string">'Жучка'</span>,<span class="hljs-string">'Бобик'</span>).
 
-  <span class="hljs-selector-tag">parent</span>(X, A),
+родитель(<span class="hljs-string">'Барбос'</span>,<span class="hljs-string">'Шарик'</span>).
 
-  <span class="hljs-selector-tag">parent</span>(X, B).
-</code></pre><h3>Отсечение</h3><pre><code><span class="hljs-selector-tag">sibling</span>(A, B) <span class="hljs-selector-pseudo">:-</span>
+родитель(<span class="hljs-string">'Барбос'</span>,<span class="hljs-string">'Бобик'</span>).
 
-  <span class="hljs-selector-tag">parent</span>(X, A),
+родитель(<span class="hljs-string">'Мушка'</span>,<span class="hljs-string">'Тишка'</span>).
 
-  !,
+родитель(<span class="hljs-string">'Барбос'</span>,<span class="hljs-string">'Тишка'</span>).
+</code></pre><h3>База правил</h3><pre><code>родной_сиб<span class="hljs-comment">(X, Y)</span> :-
 
-  <span class="hljs-selector-tag">parent</span>(X, B).
-</code></pre><h3>Отсечение, ещё пример</h3><pre><code><span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(X,Y,Z)</span></span> :-
+    родитель<span class="hljs-comment">(A, X)</span>, родитель<span class="hljs-comment">(B, X)</span>,
 
-  X =&lt; Y,
+    A \== B,
 
-  !,
+    !,
 
-  Y = Z.
+    родитель<span class="hljs-comment">(A, Y)</span>, родитель<span class="hljs-comment">(B, Y)</span>,
 
-<span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(X,Y,X)</span></span>.
-</code></pre>
+    X \== Y.
+</code></pre><p><a href="http://swish.swi-prolog.org/">Попробуйте</a> с <a href="https://en.wikipedia.org/wiki/Cut_(logic_programming%29">отсечением</a> и без</p>
 </section>
 
 <section id="logic-datalog" class="slide" data-has-notes="false">
