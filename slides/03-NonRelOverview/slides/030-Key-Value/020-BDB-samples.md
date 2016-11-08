@@ -1,4 +1,4 @@
-## Berkley DB примеры (Питон)
+## Примет Berkley DB (Питон)
 
         data = mydb.get(key)
         if data:

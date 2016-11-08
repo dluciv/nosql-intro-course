@@ -1,4 +1,4 @@
-## Voldemort пример
+## Пример Voldemort (Java)
 
     String bootstrapUrl = "tcp://localhost:6666";
     StoreClientFactory factory = new SocketStoreClientFactory(new ClientConfig().setBootstrapUrls(bootstrapUrl));
