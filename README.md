@@ -76,6 +76,8 @@
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
 5. Колоночные
 
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/03-NonRelOverview).
+
 ### Паттерны и технологии
 
 Паттерны
