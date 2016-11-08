@@ -51,7 +51,7 @@
     * Вопросы программной инженерии — таблицы-объекты-таблицы
     * Вопросы *допрограммной* инженерии — вспомним табуляторы
 
-Доступны [запись занятия 25.10.2016](https://youtu.be/qHFYgicOI1o) и [слайды](https://dluciv.github.io/nosql-intro-course/slides/01-Problematics).
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/01-Problematics) и [видеозапись занятия 25.10.2016](https://youtu.be/qHFYgicOI1o).
 
 ### The NoSQL movement и основные свойства NoSQL БД
 1. The NoSQL Movement
@@ -65,7 +65,7 @@
     * [Дискуссия](http://citforum.ru/gazeta/154/) и [критика](https://arxiv.org/abs/1509.05393)
 5. «Теорема» [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
 
-Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC) и [видеозапись занятия 01.11.2016](https://youtu.be/6tAG-OexfQI) (пункты 1..3 и начало 4 программы).
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/02-NoSQL_Movement_CAP_PACELC) и [видеозапись занятия 01.11.2016](https://youtu.be/6tAG-OexfQI).
 
 ### Нереляционные СУБД
 1. Графовые
@@ -76,7 +76,7 @@
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
 5. Колоночные
 
-Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/03-NonRelOverview).
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/03-NonRelOverview) и [аудиозапись занятия 09.11.2016](https://soundcloud.com/user-374549363/2016-11-08-nosql-recording).
 
 ### Паттерны и технологии
 
