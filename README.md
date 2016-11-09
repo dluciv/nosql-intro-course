@@ -76,7 +76,7 @@
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
 5. Колоночные
 
-Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/03-NonRelOverview) и [аудиозапись занятия 09.11.2016](https://soundcloud.com/user-374549363/2016-11-08-nosql-recording).
+Доступны [слайды](https://dluciv.github.io/nosql-intro-course/slides/03-NonRelOverview) и аудиозапись занятия 09.11.2016: можно [прослушать](https://soundcloud.com/user-374549363/2016-11-08-nosql-recording) и [скачать в немного лучшем качестве](https://raw.githubusercontent.com/dluciv/nosql-intro-course/master/resources/recordings/2016-11-08_nosql-recording.opus.ogg).
 
 ### Паттерны и технологии
 
