@@ -80,11 +80,20 @@ HDFS      | отд | Не монтируется; спец. библиотеки
 Jeffrey Dean, Sanjay Ghemawat. [MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/es/us/archive/mapreduce-osdi04.pdf).
 
 - - - - - - - - - - - - -
-## Как это выглядит
+## Как это выглядит теоретически
 
 Map $\rightarrow$ Shuffle $\rightarrow$ Reduce
 
 ![](images/MapReduce_Work_Structure.png) <!-- .element width="100%" -->
+
+- - - - - - - - - - - - -
+## Как это выглядит практически (например)
+
+![](images/mapreduce_step01.jpg) <!-- .element width="100%" -->
+
+--- note:
+
+Пример с семьёй и монетами
 
 - - - - - - - - - - - - -
 ## Оптимизация
@@ -100,6 +109,61 @@ $$combine: 2^{C \times V} \rightarrow 2^{C \times V}$$
 = = = = = = = = = = = = =
 # Примеры <!-- .element style="color:cyan;" -->
 <!-- .slide: data-background="images/helloworld.gif" -->
+
+- - - - - - - - - - - - -
+## [Пример](https://habrahabr.ru/post/184130/) MongoDB: данные
+
+    {
+      name : "John",
+      age : 23,
+      interests : ["football", "IT", "women"]
+    }
+
+$\rightarrow$
+
+    {
+      key: "football",
+      value: 1349
+    },
+    {
+      key: "MongoDB",
+      value: 58
+    },
+    //...
+
+- - - - - - - - - - - - -
+## Пример MongoDB: код
+
+    function map(){
+      for(var i in this.interests) {
+        emit(this.interests[i], 1);
+      }
+    }
+
+---
+
+    function reduce(key, values) {
+      var sum = 0;
+      for(var i in values) {
+        sum += values[i];
+      }
+      return sum;
+    }
+
+---
+
+    function finalize(key, reducedValue) {
+      return reducedValue.interests_count / reducedValue.count;
+    }
+
+---
+
+    db.users.mapReduce(map, reduce, {
+      finalize: finalize, out:"interests_by_age"
+    });
+
+- - - - - - - - - - - - -
+## Пример Hadoop
 
 = = = = = = = = = = = = =
 # Спасибо
