@@ -92,6 +92,8 @@
 1. MPI
 2. ФС кластеров
 
+[Пока что не очень доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/).
+
 ### Распределённая обработка данных
 1. Краткий экскурс в выбранную платформу, на выбор:
     * Akka (Scala)
