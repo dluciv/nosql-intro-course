@@ -9,7 +9,7 @@
 
 # Файловые системы вычислительных кластеров
 
-<iframe width="100%" height="1000px" src="https://www.youtube.com/embed/Xxz630u7YlQ?start=118&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="1000px" src="https://www.youtube.com/embed/Xxz630u7YlQ?start=118" frameborder="0" allowfullscreen></iframe>
 <!-- . slide : data-background="images/hard-drive.gif" -->
 
 - - - - - - - - - - - - -
