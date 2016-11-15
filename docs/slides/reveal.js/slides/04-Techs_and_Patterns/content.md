@@ -163,7 +163,21 @@ $\rightarrow$
     });
 
 - - - - - - - - - - - - -
-## Пример Hadoop
+## Примеры Hadoop
+
+* [Пример с подсчётом слов](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0)
+* [Пример с подсчётом $\pi$ методом Монте-Карло](https://hadoop.apache.org/docs/r2.6.0/api/org/apache/hadoop/examples/pi/package-summary.html)
+
+- - - - - - - - - - - - -
+## Hadoop Map Split
+
+Map в одиночку?.. Нет!
+
+[![](images/hadoop-split.jpg)<!-- .element: width="100%" -->](http://www.dummies.com/programming/big-data/hadoop/input-splits-in-hadoops-mapreduce/)
+
+* Распараллеливание потоковой обработки файлов
+* Интеллектуальное [разбиение на блоки](https://developer.yahoo.com/hadoop/tutorial/module5.html) средствами [InputFormat](https://hadoop.apache.org/docs/r2.7.2/api/org/apache/hadoop/mapred/InputFormat.html)
+    * Например, текстовые файлы [встроенными средствами](http://hadoop.apache.org/docs/r2.7.1/api/org/apache/hadoop/mapreduce/lib/input/TextInputFormat.html) разбиваются на строки
 
 = = = = = = = = = = = = =
 # Спасибо
