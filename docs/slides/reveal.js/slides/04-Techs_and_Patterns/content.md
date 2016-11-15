@@ -7,10 +7,9 @@
 
 = = = = = = = = = = = = =
 
-# Файловые системы вычислительных кластеров
+# [Файловые системы вычислительных кластеров](https://www.youtube.com/embed/Xxz630u7YlQ?start=118)
 
-<iframe width="100%" height="1000px" src="https://www.youtube.com/embed/Xxz630u7YlQ?start=118" frameborder="0" allowfullscreen></iframe>
-<!-- . slide : data-background="images/hard-drive.gif" -->
+<!-- .slide: data-background="images/clusterfs.gif" -->
 
 - - - - - - - - - - - - -
 ## Свойства
