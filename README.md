@@ -92,7 +92,7 @@
 1. MPI
 2. ФС кластеров
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/) и [видеозапись занятия 15.11.2016](https://youtu.be/seERreFTyE4).
 
 ### Распределённая обработка данных
 1. Краткий экскурс в выбранную платформу, на выбор:
