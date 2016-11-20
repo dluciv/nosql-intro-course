@@ -139,8 +139,6 @@ $\rightarrow$
       }
     }
 
----
-
     function reduce(key, values) {
       var sum = 0;
       for(var i in values) {
@@ -148,8 +146,6 @@ $\rightarrow$
       }
       return sum;
     }
-
----
 
     function finalize(key, reducedValue) {
       return reducedValue.interests_count / reducedValue.count;
