@@ -174,5 +174,76 @@ Map в одиночку?.. Нет!
 * Интеллектуальное [разбиение на блоки](https://developer.yahoo.com/hadoop/tutorial/module5.html) средствами [InputFormat](https://hadoop.apache.org/docs/r2.7.2/api/org/apache/hadoop/mapred/InputFormat.html)
     * Например, текстовые файлы [встроенными средствами](http://hadoop.apache.org/docs/r2.7.1/api/org/apache/hadoop/mapreduce/lib/input/TextInputFormat.html) разбиваются на строки
 
+
+= = = = = = = = = = = = =
+# Pregel <!-- .element style="color: black;" -->
+<!-- .slide: data-background="images/1652.jpg" -->
+
+- - - - - - - - - - - - -
+## Pregel: зачем и почему?
+
+**Зачем**
+* считать [Page Rank](https://en.wikipedia.org/wiki/PageRank) =)
+* исполнять прочие алгоритмы для [вебграфов](https://en.wikipedia.org/wiki/Webgraph)
+
+**Почему**
+* для вебграфов эффективны итеративные алгоритмы
+* итеративные алгоритмы плохо ложатся в MapReduce
+
+- - - - - - - - - - - - -
+## Пример: Page Rank
+
+Вероятность того, что пользователь перейдёт по случайной ссылке с учётом затухания интереса
+
+$${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{{\rm PR}(P')}{|{\rm links}(P')|},$$
+
+Где $D \approx 0,85$, а $1 - D$ — минимальный ${\rm PR}$.
+
+Проблема в том, что ${\rm PR}$ изначально неизестны, поэтому:
+
+1. Сперва их выставляют случайными или минимальными.
+2. Потом *несколько раз* пересчитывают.
+
+- - - - - - - - - - - - -
+## Об итеративных алгоритмах
+
+**Оператор** выполняет операцию по изменению состояния системы
+
+Если итераций мало или «*матрица оператора плотная*» (т.е. многие компоненты состояния влияют на многие) $\implies$ MapReduce, а лучше что-то более локальное
+* Пример — метод Рунге-Кутты
+
+Если итераций много (например, $1\% \approx 0,85^{28,34}$) и «*матрица разреженная*» $\implies$ стоит подумать, а не о графе ли речь
+* Пример — Page Rank
+
+И задачи на вебграфах обычно графовые =)
+
+- - - - - - - - - - - - -
+## [Page Rank](https://github.com/LaurensRietveld/GiraphAnalysis/blob/master/src/main/java/org/data2semantics/giraph/pagerank/PageRankComputation.java) с помощью [Apache Giraph](http://giraph.apache.org/)
+
+    public class PageRankComputation extends RandomWalkComputation<NullWritable> {
+        @Override protected double transitionProbability(
+                Vertex<Text, DoubleWritable, NullWritable> vertex,
+                double stateProbability, Edge<Text, NullWritable> edge) {
+            return stateProbability / vertex.getNumEdges();
+        }
+
+        @Override protected double recompute(
+                Vertex<Text, DoubleWritable, NullWritable> vertex,
+                Iterable<DoubleWritable> partialRanks,
+                double teleportationProbability) {
+            // rank contribution from incident neighbors
+            double rankFromNeighbors = MathUtils.sum(partialRanks);
+
+            // rank contribution from dangling vertices
+            double danglingContribution =
+                 getDanglingProbability() / getTotalNumVertices();
+
+            // recompute rank
+            return (1d - teleportationProbability) *
+                   (rankFromNeighbors + danglingContribution) +
+                   teleportationProbability / getTotalNumVertices();
+        }
+    }
+
 = = = = = = = = = = = = =
 # Спасибо

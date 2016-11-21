@@ -82,35 +82,42 @@
 
 ### Паттерны и технологии
 
+Технологии
+
+2. ФС кластеров
+
 Паттерны
 
 1. GRID
 2. Map-Reduce
-
-Некоторые технологии
-
-1. MPI
-2. ФС кластеров
+3. Pregel
 
 [Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/) и [видеозапись занятия 15.11.2016](https://youtu.be/seERreFTyE4).
 
+### Использование NoSQL СУБД
+Простой агрегирующий анализ обработанных данных с использованием MongoDB. Практическое занятие.
+
+1. Вспомогательные технологии
+    * Неблокирующий ввод-вывод
+    * Минимум функционального программирования; [Continuation Passing Style](https://en.wikipedia.org/wiki/Continuation-passing_style)
+    * Минимум JavaScript и [LiveScript](http://livescript.net/)
+    * Функциональное программирование и телекоммуникации
+2. Получение и первичная обработка данных
+3. Импорт данных
+4. Анализ данных
+    * Хранимый JavaScript в MongoDB
+    * MapReduce
+    * Результаты
+
 ### Распределённая обработка данных
+Простая вычислительная задача «с нуля»
+
 1. Краткий экскурс в выбранную платформу, на выбор:
     * Akka (Scala)
-    * Erlang
+    * [Erlang](https://youtu.be/xrIjfIjssLE)
     * Microsoft Orleans
 2. Самостоятельно реализуем GRID
     * Решение одной из предложенных задач методом грубой или не очень грубой силы
-3. Самостоятельно реализуем Map-Reduce
-    * Простой агрегирующий анализ данных из «диких» источников в сети
-
-### Использование NoSQL СУБД
-Простой агрегирующий анализ обработанных данных
-
-На выбор:
-
-* MongoDB 
-* CouchDB
 
 ### Андеграунд
 1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
@@ -141,3 +148,5 @@
 4. Daniel J. Abadi. [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), Yale University, 2012
 5. Ian Robinson, Jim Webber, Emil Eifrem. [Graph Databases](http://graphdatabases.com/), O'Reilly Media, 2013
 6. Jeffrey Dean, Sanjay Ghemawat. [MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/es/us/archive/mapreduce-osdi04.pdf), [OSDI, 2004](https://www.usenix.org/legacy/event/osdi04/)
+7. Toby Segaran. [Programming Collective Intelligence](http://shop.oreilly.com/product/9780596529321.do), O'Reilly Media, 2007
+8. Grzegorz Malewicz, Matthew H. Austern, Aart J.C Bik, James C. Dehnert, Ilan Horn, Naty Leiser, and Grzegorz Czajkowski. [Pregel: A System for Large-Scale Graph Processing](https://kowshik.github.io/JPregel/pregel_paper.pdf). In Proceedings of the 2010 ACM SIGMOD International Conference on Management of data (SIGMOD '10). ACM, New York, NY, USA, 135-146. DOI=http://dx.doi.org/10.1145/1807167.1807184
