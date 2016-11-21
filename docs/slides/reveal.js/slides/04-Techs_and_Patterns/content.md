@@ -193,6 +193,8 @@ Map в одиночку?.. Нет!
 - - - - - - - - - - - - -
 ## Пример: Page Rank
 
+[![](images/PageRanks-Example.svg)  <!-- .element style="margin-left: 500px; margin-right: auto; width: 600px;" -->](images/PageRanks-Example.svg)
+
 Вероятность того, что пользователь перейдёт по случайной ссылке с учётом затухания интереса
 
 $${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{{\rm PR}(P')}{|{\rm links}(P')|},$$
