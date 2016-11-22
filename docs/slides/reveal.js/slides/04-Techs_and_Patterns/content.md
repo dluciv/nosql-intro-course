@@ -106,6 +106,57 @@ $$combine: 2^{C \times V} \rightarrow 2^{C \times V}$$
 Полкучается $$reduce \circ combine \circ map$$ по трафику эффективнее, чем $$reduce \circ map.$$
 
 = = = = = = = = = = = = =
+# Pregel <!-- .element style="color: black;" -->
+<!-- .slide: data-background="images/1652.jpg" -->
+
+- - - - - - - - - - - - -
+## Pregel: зачем и почему?
+
+**Зачем**
+* считать [Page Rank](https://en.wikipedia.org/wiki/PageRank) =)
+* исполнять прочие алгоритмы для [вебграфов](https://en.wikipedia.org/wiki/Webgraph)
+
+**Почему**
+* для вебграфов эффективны итеративные алгоритмы
+* итеративные алгоритмы плохо ложатся в MapReduce
+
+- - - - - - - - - - - - -
+## Основные идеи
+
+* Мультиагентная система, агенты на узлах
+* Вычисление поэтапное, все узлы при генерации данных текущего «такта» пользуются своими и чужими данными с предыдущего
+* Для следующего «такта» узел может менять топологию графа
+
+- - - - - - - - - - - - -
+## Пример: Page Rank
+
+[![](images/PageRanks-Example.svg)  <!-- .element style="margin-left: 500px; margin-right: auto; width: 600px;" -->](images/PageRanks-Example.svg)
+
+Вероятность того, что пользователь перейдёт по случайной ссылке с учётом затухания интереса
+
+$${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{{\rm PR}(P')}{|{\rm links}(P')|},$$
+
+Где $D \approx 0,85$, а $1 - D$ — минимальный ${\rm PR}$.
+
+Проблема в том, что ${\rm PR}$ изначально неизестны, поэтому:
+
+1. Сперва их выставляют случайными или минимальными.
+2. Потом *несколько раз* пересчитывают.
+
+- - - - - - - - - - - - -
+## Об итеративных алгоритмах
+
+**Оператор** выполняет операцию по изменению состояния системы
+
+Если итераций мало или «*матрица оператора плотная*» (т.е. многие компоненты состояния влияют на многие) $\implies$ MapReduce, а лучше что-то более локальное
+* Пример — метод Рунге-Кутты
+
+Если итераций много (например, $1\% \approx 0,85^{28,34}$) и «*матрица разреженная*» $\implies$ стоит подумать, а не о графе ли речь
+* Пример — Page Rank
+
+И задачи на вебграфах обычно графовые =)
+
+= = = = = = = = = = = = =
 # Примеры <!-- .element style="color:cyan;" -->
 <!-- .slide: data-background="images/helloworld.gif" -->
 
@@ -175,52 +226,8 @@ Map в одиночку?.. Нет!
     * Например, текстовые файлы [встроенными средствами](http://hadoop.apache.org/docs/r2.7.1/api/org/apache/hadoop/mapreduce/lib/input/TextInputFormat.html) разбиваются на строки
 
 
-= = = = = = = = = = = = =
-# Pregel <!-- .element style="color: black;" -->
-<!-- .slide: data-background="images/1652.jpg" -->
-
 - - - - - - - - - - - - -
-## Pregel: зачем и почему?
-
-**Зачем**
-* считать [Page Rank](https://en.wikipedia.org/wiki/PageRank) =)
-* исполнять прочие алгоритмы для [вебграфов](https://en.wikipedia.org/wiki/Webgraph)
-
-**Почему**
-* для вебграфов эффективны итеративные алгоритмы
-* итеративные алгоритмы плохо ложатся в MapReduce
-
-- - - - - - - - - - - - -
-## Пример: Page Rank
-
-[![](images/PageRanks-Example.svg)  <!-- .element style="margin-left: 500px; margin-right: auto; width: 600px;" -->](images/PageRanks-Example.svg)
-
-Вероятность того, что пользователь перейдёт по случайной ссылке с учётом затухания интереса
-
-$${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{{\rm PR}(P')}{|{\rm links}(P')|},$$
-
-Где $D \approx 0,85$, а $1 - D$ — минимальный ${\rm PR}$.
-
-Проблема в том, что ${\rm PR}$ изначально неизестны, поэтому:
-
-1. Сперва их выставляют случайными или минимальными.
-2. Потом *несколько раз* пересчитывают.
-
-- - - - - - - - - - - - -
-## Об итеративных алгоритмах
-
-**Оператор** выполняет операцию по изменению состояния системы
-
-Если итераций мало или «*матрица оператора плотная*» (т.е. многие компоненты состояния влияют на многие) $\implies$ MapReduce, а лучше что-то более локальное
-* Пример — метод Рунге-Кутты
-
-Если итераций много (например, $1\% \approx 0,85^{28,34}$) и «*матрица разреженная*» $\implies$ стоит подумать, а не о графе ли речь
-* Пример — Page Rank
-
-И задачи на вебграфах обычно графовые =)
-
-- - - - - - - - - - - - -
-## [Page Rank](https://github.com/LaurensRietveld/GiraphAnalysis/blob/master/src/main/java/org/data2semantics/giraph/pagerank/PageRankComputation.java) с помощью [Apache Giraph](http://giraph.apache.org/)
+## [Page Rank](https://github.com/LaurensRietveld/GiraphAnalysis/blob/master/src/main/java/org/data2semantics/giraph/pagerank/PageRankComputation.java) в стиле Pregel с помощью [Apache Giraph](http://giraph.apache.org/)
 
     public class PageRankComputation extends RandomWalkComputation<NullWritable> {
         @Override protected double transitionProbability(
