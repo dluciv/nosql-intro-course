@@ -92,7 +92,7 @@
 2. Map-Reduce
 3. Pregel
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/) и [видеозапись занятия 15.11.2016](https://youtu.be/seERreFTyE4).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/04-Techs_and_Patterns/) и видеозаписи занятий [15.11.2016](https://youtu.be/seERreFTyE4) и [22.11.2016](https://youtu.be/_8_iQTsjnPc).
 
 ### Использование NoSQL СУБД
 Простой агрегирующий анализ обработанных данных с использованием MongoDB. Практическое занятие.
