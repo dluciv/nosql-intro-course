@@ -74,7 +74,7 @@ HDFS      | отд | Не монтируется; спец. библиотеки
 
 * Разбиение на классы эквивалдентности $$ map: D \rightarrow C \times V $$
 
-* Редукция $$ reduce: 2^{C \times V} \rightarrow V' $$
+* Редукция $$ reduce: C \times 2^V \rightarrow V' $$
 
 Jeffrey Dean, Sanjay Ghemawat. [MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/es/us/archive/mapreduce-osdi04.pdf).
 
@@ -97,9 +97,9 @@ Map $\rightarrow$ Shuffle $\rightarrow$ Reduce
 - - - - - - - - - - - - -
 ## Оптимизация
 
-Для $V = V'$ и идемпотентной $reduce$ выполняют частичную редукцию:
+Для $V = V'$ и идемпотентной редукции выполняют $reduce$  разбивают на $reduce$ и $combine$. $combine$ выполняет частичную редукцию:
 
-$$combine: 2^{C \times V} \rightarrow 2^{C \times V}$$
+$$combine: 2^{C \times V} \rightarrow C \times 2^V$$
 
 ---
 
