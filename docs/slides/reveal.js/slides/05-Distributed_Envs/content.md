@@ -130,4 +130,26 @@ $$\rightarrow$$
 Также поддерживается в F#, Haskell и некоторых других
 
 = = = = = = = = = = = = =
+# Erlang is even more different <!-- .element: style="color: blue;" -->
+<!-- .slide: data-background="images/squid.png" data-background-size="contain" data-background-color="white" -->
+
+- - - - - - - - - - - - -
+## Вычислительная модель в -I приближении
+
+Это пример описания поведения агента на языке [SDL](https://en.wikipedia.org/wiki/Specification_and_Description_Language):
+
+[![](images/SdlStateMachine.png)](images/SdlStateMachine.png)
+
+Язык создан для описания протоколов
+
+- - - - - - - - - - - - -
+## Также рекомендуется посмотреть
+
+Книжку «Learn You Some Erlang for Great Good» из списка литературы
+
+![](images/erlang-the-movie.png) <!-- .element style="margin-left: 500px; margin-right: auto; width: 600px;" -->
+
+[Erlang the Movie](http://learnyousomeerlang.com/static/img/erlang-the-movie.png)
+
+= = = = = = = = = = = = =
 # Спасибо
