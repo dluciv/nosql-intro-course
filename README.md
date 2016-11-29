@@ -109,15 +109,19 @@
     * MapReduce
     * Результаты
 
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/)
+
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»
 
 1. Краткий экскурс в выбранную платформу, на выбор:
     * Akka (Scala)
-    * [Erlang](https://youtu.be/xrIjfIjssLE)
+    * **[Erlang](https://youtu.be/xrIjfIjssLE)** (выбран)
     * Microsoft Orleans
 2. Самостоятельно реализуем GRID
     * Решение одной из предложенных задач методом грубой или не очень грубой силы
+
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/)
 
 ### Андеграунд
 1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда

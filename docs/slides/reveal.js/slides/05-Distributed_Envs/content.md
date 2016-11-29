@@ -127,7 +127,11 @@ $$\rightarrow$$
       if c != t
         throw "WAT"
 
-Также поддерживается в F#, Haskell и некоторых других
+`<-` также поддерживается в F#, Haskell (при помощи монад) и некоторых других
+
+= = = = = = = = = = = = =
+# Наконец-то, простой практический пример
+<!-- .slide: data-background="images/atlast.jpg" -->
 
 = = = = = = = = = = = = =
 # Erlang is even more different <!-- .element: style="color: blue;" -->
@@ -140,7 +144,29 @@ $$\rightarrow$$
 
 [![](images/SdlStateMachine.png)](images/SdlStateMachine.png)
 
-Язык создан для описания протоколов
+Язык создан для описания протоколов в мультиагентных системах. Примеры прошлого,
+специфичные для ГП «Терком» и ЗАО «Ланит-Терком» — семейство разрабатываемых АТС.
+
+- - - - - - - - - - - - -
+## То же самое на Эрланге
+
+    sample_agent(Link) ->
+      Link ! { conreq, ConreqParam1, ... },
+      connecting(Link, 10, 5).
+
+    connecting(Link, Countdown, Timeout) ->
+      if
+        Countdown > 0 ->
+          receive
+            { conconf, ConconfParam1, ... } ->
+              connected(ConconfParam1, ...);
+            after Timeout ->
+              Link ! { conreq, ConreqParam1, ... },
+              connecting(Link, Countdown - 1, Timeout)
+          end;
+        true -> % works as an 'else' branch
+          erlang:error('Failed to connect')
+      end.
 
 - - - - - - - - - - - - -
 ## Также рекомендуется посмотреть
