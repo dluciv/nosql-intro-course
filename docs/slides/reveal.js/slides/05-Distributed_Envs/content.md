@@ -95,8 +95,8 @@ Node.JS
 Пример на [LiveScript](http://livescript.net/)
 
     fs = require 'fs'
-    do_work = ()!->
-      t = "Ололо"
+    do_work = !->
+      t = "Привет"
       fs.writeFile "greeting.txt", t, (err)!->
         fs.readFile "greeting.txt", (err, content)!->
           if content != t
@@ -111,8 +111,8 @@ Node.JS
 - - - - - - - - - - - - -
 ## Чуть прямее
 
-    do_work = ()!->
-      t = "Ололо"
+    do_work = !->
+      t = "Привет"
       fs.writeFile "greeting.txt", t, (err)!->
         fs.readFile "greeting.txt", (err, content)!->
           if content != t
@@ -120,11 +120,11 @@ Node.JS
 
 $$\rightarrow$$
 
-    do_work = ()!->
-      t = "Ололо"
+    do_work = !->
+      t = "Привет"
       err <-! fs.writeFile "greeting.txt", t
-      err, c <-! fs.readFile "greeting.txt"
-      if c != t
+      err, content <-! fs.readFile "greeting.txt"
+      if content != t
         throw "WAT"
 
 `<-` также поддерживается в F#, Haskell (при помощи монад) и некоторых других
