@@ -109,7 +109,7 @@
     * MapReduce
     * Результаты
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/)
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/) и [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE).
 
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»
