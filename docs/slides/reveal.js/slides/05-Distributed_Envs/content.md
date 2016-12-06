@@ -144,8 +144,8 @@ $$\rightarrow$$
 
 [![](images/SdlStateMachine.png)](images/SdlStateMachine.png)
 
-Язык создан для описания протоколов в мультиагентных системах. Примеры прошлого,
-специфичные для ГП «Терком» и ЗАО «Ланит-Терком» — семейство разрабатываемых АТС.
+Язык создан для описания протоколов в мультиагентных системах. Пример прошлого,
+специфичный для [ГП и ГУП «Терком»](http://hardware.tercom.ru/) — семейство разрабатываемых АТС.
 
 - - - - - - - - - - - - -
 ## То же самое на Эрланге
@@ -167,6 +167,33 @@ $$\rightarrow$$
         true -> % works as an 'else' branch
           erlang:error('Failed to connect')
       end.
+
+[**Why is Erlang called "Erlang"?**](http://erlang.org/faq/academic.html) — В честь Агнера Эрланга,
+который занимался теорией массового обслуживания. Версия *ERicsson LANGuage* тоже не отрицается.
+
+Пользуются, кроме [Ericsson](https://www.ericsson.com/): [Heroku](https://www.heroku.com/), [WhatsApp](https://www.whatsapp.com/),
+[Klarna](https://www.klarna.com/us/about-us), [Basho](http://basho.com/).
+
+- - - - - - - - - - - - -
+## Что тут есть?
+
+[**Where does Erlang syntax come from?**](http://erlang.org/faq/academic.html) — Mostly from prolog. Erlang started life as a modified prolog...
+
+В том числе, конструкции:
+
+    функция(Аргументы, ...) ->
+      оператор, % комментарий
+      оператор,
+      Идентификатор = fun () -> ... end,
+      Процесс ! { кортеж, 1, 2, 3 },
+      'Модуль-атом':'Ф-ция-атом'(1, 2, 3),
+      io:format("~s~n", ["Hello world!"]).
+
+Разделители:
+
+* Внутри блока: `оператор, оператор, оператор`
+* Внутри конструкции ветвления: `заголовок условие1 -> оператор, оператор, ...; условие -> опреатор end`
+* Блок: `begin оператор, оператор, ... end` (нужен редко)
 
 - - - - - - - - - - - - -
 ## Также рекомендуется посмотреть
