@@ -109,7 +109,7 @@
     * MapReduce
     * Результаты
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/) и [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/), [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE) и [исходный код примера MapReduce для MongoDB](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang).
 
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»
@@ -121,7 +121,7 @@
 2. Самостоятельно реализуем GRID
     * Решение одной из предложенных задач методом грубой или не очень грубой силы
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/)
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/reveal.js/slides/05-Distributed_Envs/) и [видеозапись занятия 06.12.2016](https://youtu.be/sG_Ns6ijmQs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE).
 
 ### Андеграунд
 1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
