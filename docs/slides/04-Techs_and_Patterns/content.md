@@ -134,7 +134,7 @@ $$combine: 2^{C \times V} \rightarrow C \times 2^V$$
 
 Вероятность того, что пользователь перейдёт по случайной ссылке с учётом затухания интереса
 
-$${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{{\rm PR}(P')}{|{\rm links}(P')|},$$
+$${\rm PR}(P) = (1 - D) + D \sum_{P' \rightarrow P; P' \not{} = P} \frac{ {\rm PR}(P')}{|{\rm links}(P')|},$$
 
 Где $D \approx 0,85$, а $1 - D$ — минимальный ${\rm PR}$.
 
