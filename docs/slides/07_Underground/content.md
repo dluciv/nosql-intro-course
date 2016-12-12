@@ -7,15 +7,17 @@
 
 = = = = = = = = = = = = =
 
-# К чему это всё?..<!--.element: style="color: red;" -->
+# К чему это всё?.. <!--.element: style="color: white;" -->
 
-<!--.slide: data-background="images/refuge.jpg" -->
+<!--.slide: data-background="images/int_catacombs_living.jpg" -->
 
 - - - - - - - - - - - - -
 
-## А вот
+## Нас всех делают одинаковыми<!--.element: style="color: white;" -->
+
+<!--.slide: data-background="images/epilogue_ussr_212.jpg" -->
 
 = = = = = = = = = = = = =
-# Спасибо
+# Спасибо<!--.element: style="color: white;" -->
 
-Теперь уже точно спасибо
+<!--.slide: data-background="images/epilogue_us.jpg" -->
