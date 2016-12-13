@@ -109,7 +109,11 @@
     * MapReduce
     * Результаты
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/), [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE) и [исходный код примера MapReduce для MongoDB](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/), [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE),
+а также исходные коды примеров:
+
+    * [MapReduce для MongoDB](tree/master/resources/samples/iichan-slang)
+    * [Bruteforce ZIP password для Erlang](tree/master/resources/samples/iichan-slang/erlang-zip)
 
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»

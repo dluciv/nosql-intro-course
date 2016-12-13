@@ -25,7 +25,7 @@
 В итоге
 
 * Где теперь одноранговая глобальная сеть?
-* Где теперь сеть сотрудников НИИ и университетов
+* Где теперь сеть сотрудников НИИ и университетов?
     * Ну и военных тоже, ок
 
 - - - - - - - - - - - - -
@@ -60,7 +60,7 @@
 - - - - - - - - - - - - -
 ## Хочется
 
-В разной степени, и паранеоикам, и простым пользователям
+В разной степени, и параноикам, и здоровым пользователям
 
 * Контролировать физическое нахождение своих данных
     * Если нет, то чтобы никто не контролировал, но можно было шифровать
@@ -126,7 +126,7 @@
     * [FreeNet](https://freenetproject.org/) <!-- .element: style="color: red;" -->
     * [ZeroNet](https://zeronet.io/) (с подобием динамического контента) <!-- .element: style="color: red;" -->
     * [IPFS](https://ipfs.io/)
-    * [RetroShare] <!-- .element: style="color: red;" -->
+    * [RetroShare](http://retroshare.net/index.html) <!-- .element: style="color: red;" -->
     * [BlockChain](https://en.wikipedia.org/wiki/Blockchain_(database%29) <!-- .element: style="color: blue;" -->
 * Оверлейные сети
     * [I2P](https://geti2p.net/) <!-- .element: style="color: red;" -->
@@ -139,9 +139,9 @@
     * [Ricochet](https://ricochet.im/) <!-- .element: style="color: red;" -->
 
 = = = = = = = = = = = = =
-## Совсем Underground =)
+# Совсем Underground — <!-- .element: style="color: black;" --> [Deaddrops](https://deaddrops.com/) <!-- .element: style="color: black;" -->
 
-Deaddrops =)
+<!-- .slide: data-background="images/deaddrops1-600x400.jpg" -->
 
 = = = = = = = = = = = = =
 # Спасибо<!--.element: style="color: white;" -->
