@@ -198,11 +198,13 @@ $$\rightarrow$$
 - - - - - - - - - - - - -
 ## Также рекомендуется посмотреть
 
+<div style="text-align: center;">
 Книжку «Learn You Some Erlang for Great Good» из списка литературы
 
-![](images/erlang-the-movie.png) <!-- .element style="margin-left: 500px; margin-right: auto; width: 600px;" -->
-
-[Erlang the Movie](http://learnyousomeerlang.com/static/img/erlang-the-movie.png)
+<a target="_blank" href="https://youtu.be/xrIjfIjssLE">
+![](images/erlang-the-movie.png)<!-- .element style="width: 600px;" -->
+<br/>Erlang the Movie
+</a></div>
 
 = = = = = = = = = = = = =
 # Спасибо

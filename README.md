@@ -139,7 +139,7 @@
 * http://www.aptuz.com/blog/is-postgres-nosql-database-better-than-mongodb/
 * https://habrahabr.ru/post/253017/
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/06-Software_Engineering/).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/06-Software_Engineering/) и [видеозапись занятия 13.12.2016](https://youtu.be/v9FVAJwUso4?t=27m16s).
 
 ### Андеграунд
 
@@ -149,7 +149,7 @@
 4. Blockchain и те, кто из него произошёл
 5. Изоляция: две сети в «ящиках»; deaddrops
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/07-Underground/).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/07-Underground/) и [видеозапись занятия 13.12.2016](https://youtu.be/v9FVAJwUso4?t=52m45s).
 
 
 ## Список литературы
