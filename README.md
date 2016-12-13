@@ -113,7 +113,7 @@
 а также исходные коды примеров:
 
 * [MapReduce для MongoDB](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang)
-* [Bruteforce ZIP password для Erlang](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang/erlang-zip)
+* [Bruteforce ZIP password для Erlang](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/erlang-zip)
 
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»
