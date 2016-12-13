@@ -110,10 +110,7 @@
     * Результаты
 
 [Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/), [видеозапись занятия 29.11.2016](https://youtu.be/tTegYDg3xjs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE),
-а также исходные коды примеров:
-
-* [MapReduce для MongoDB](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang)
-* [Bruteforce ZIP password для Erlang](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/erlang-zip)
+а также исходный код примера [MapReduce для MongoDB](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/iichan-slang).
 
 ### Распределённая обработка данных
 Простая вычислительная задача «с нуля»
@@ -125,7 +122,9 @@
 2. Самостоятельно реализуем GRID
     * Решение одной из предложенных задач методом грубой или не очень грубой силы
 
-[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/) и [видеозапись занятия 06.12.2016](https://youtu.be/sG_Ns6ijmQs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE).
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/) и [видеозапись занятия 06.12.2016](https://youtu.be/sG_Ns6ijmQs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE),
+а также исходный код примера [Bruteforce ZIP password для Erlang](https://github.com/dluciv/nosql-intro-course/tree/master/resources/samples/erlang-zip).
+
 
 ### Инженерия ПО и процесса производства ПО
 
