@@ -123,23 +123,31 @@
 
 [Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/05-Distributed_Envs/) и [видеозапись занятия 06.12.2016](https://youtu.be/sG_Ns6ijmQs?list=PLL0gqPNT01DYjMD_hD-hQE5qErwFzopPE).
 
+### Инженерия ПО и процесса производства ПО
+
+Дискуссия
+
+* [NoSQL и Agile](https://www.mongodb.com/agile-development)
+* [Дискуссия](http://www.dbta.com/BigDataQuarterly/Articles/The-Emerging-Agile-Data-Architecture-NoSQL-Hadoop-and-Beyond-113936.aspx)
+
+А NoSQL ли?.. Может что-нибудь на основе PostgreSQL? =)
+
+* https://jaxenter.com/nosql-vs-postgres-121967.html
+* http://www.aptuz.com/blog/is-postgres-nosql-database-better-than-mongodb/
+* https://habrahabr.ru/post/253017/
+
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/06-Software_Engineering/).
+
 ### Андеграунд
+
 1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
 2. ZeroNet, FreeNet, IPFS
 3. «Правильные» мессенджеры — XMPP, Matrix, Tox...
 4. Blockchain и те, кто из него произошёл
 5. Изоляция: две сети в «ящиках»; deaddrops
 
-### Инженерия ПО и процесса производства ПО
-Дискуссия
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/07-Underground/).
 
-2. [NoSQL и Agile](https://www.mongodb.com/agile-development)
-3. [Риски](https://jaxenter.com/nosql-vs-postgres-121967.html)
-
-Решения
-
-1. [Wakanda: NoSQL for Model-Driven Web applications - NoSQL matters 2012](http://www.slideshare.net/alexandre_morgaut/wakanda-nosql-for-modeldriven-web-applications)
-2. Продолжение следует
 
 ## Список литературы
 
