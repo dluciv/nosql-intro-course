@@ -1,7 +1,7 @@
 start "" cmd /k escript master.erl
 
 
-del wprker.beam
+del worker.beam
 erlc worker.erl
 :: erl -noshell -s program main foo bar -s init stop
 :: http://stackoverflow.com/a/31872530/539470
