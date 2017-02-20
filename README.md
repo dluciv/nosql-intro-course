@@ -1,3 +1,5 @@
+<!-- -*- coding: utf-8 -*- -->
+
 # Распределённая обработка информации и NoSQL базы данных
 
 [![Ada Lovelace](resources/Ada-18-396x480.jpg)](https://en.wikipedia.org/wiki/Ada_Lovelace)
