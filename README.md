@@ -153,6 +153,12 @@
 
 [Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/07-Underground/) и [видеозапись занятия 13.12.2016](https://youtu.be/v9FVAJwUso4?t=52m45s).
 
+### Доклад на семинаре кафедры системного программирования
+
+Содержание курса и postmortem
+
+[Доступны слайды](https://dluciv.github.io/nosql-intro-course/slides/XX-Chair_Seminar-Overview)
+
 
 ## Список литературы
 

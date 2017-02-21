@@ -25,6 +25,10 @@
 - - - - - - - - - - - - -
 ## Курсы повышения квалификации
 
+![](images/dilbert-meeting.jpg)<!--.element: style="height:600px;" -->
+
+<!--.slide: style="text-align:center;" -->
+
 - - - - - - - - - - - - -
 ## Акценты
 
@@ -59,8 +63,8 @@
 Основы:
 * ACID и BASE
 * Консенсус в распеределённых системах
-  * Эта тема фактически повисла, из неё следовало мало
-* Теоремы CAP и PACELC
+  * Эта тема фактически повисла, из неё следовало мало<!-- .element: style="color: red;" -->
+* Теоремы [CAP](https://en.wikipedia.org/wiki/CAP_theorem) и [PACELC](https://en.wikipedia.org/wiki/PACELC_theorem)
 
 - - - - - - - - - - - - -
 ## Нереляционные СУБД
@@ -70,7 +74,8 @@
 4. Документо-ориентированные
     * XML — [Sedna](http://sedna.org/), [eXistdb](http://exist-db.org/exist/apps/homepage/index.html)
     * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
-5. Колоночные (которые на самом деле реляционные =) )
+5. Колоночные (которые на самом деле обычно реляционные =) )
+    * Тут следоввало позвать хорошо разбирающегося коллегу, тем более, что он есть<!-- .element: style="color: red;" -->
 
 - - - - - - - - - - - - -
 ## Паттерны и технологии
@@ -99,21 +104,16 @@
 - - - - - - - - - - - - -
 ## Программная инженерия
 
-Дискуссия
+![](images/1791.gif)<!--.element: style="height:600px;" -->
 
-* [NoSQL и Agile](https://www.mongodb.com/agile-development)
-* [Дискуссия](http://www.dbta.com/BigDataQuarterly/Articles/The-Emerging-Agile-Data-Architecture-NoSQL-Hadoop-and-Beyond-113936.aspx)
+[А нужен ли NoSQL? И зачем?](../06-Software_Engineering/)
 
-А NoSQL ли?.. Может что-нибудь на основе PostgreSQL? =)
-
-* https://jaxenter.com/nosql-vs-postgres-121967.html
-* http://www.aptuz.com/blog/is-postgres-nosql-database-better-than-mongodb/
-* https://habrahabr.ru/post/253017/
+<!--.slide: style="text-align:center;" -->
 
 - - - - - - - - - - - - -
 ## Андеграунд
 
-Бонусная лекция, актуальность в рамках курса спорна
+Бонусная лекция, <span>актуальность в рамках курса спорна</span><!-- .element: style="color: red;" -->
 
 1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
 2. ZeroNet, FreeNet, IPFS
@@ -122,7 +122,10 @@
 5. Изоляция: две сети в «ящиках»; deaddrops
 
 = = = = = = = = = = = = =
-# Литература
+# Ресурсы
+
+- - - - - - - - - - - - -
+## Литература и статьи в сети
 
 1.  Christof Strauch [NoSQL Databases](http://www.christof-strauch.de/nosqldbs.pdf)
 2.  Michael Stonebraker [Errors in Database Systems, Eventual Consistency, and the CAP Theorem](http://cacm.acm.org/blogs/blog-cacm/83396-errors-in-database-systems-eventual-consistency-and-the-cap-theorem/fulltext#). BLOG@CACM, April 5, 2010.
@@ -136,6 +139,14 @@
 9.  Grzegorz Malewicz, Matthew H. Austern, Aart J.C Bik, James C. Dehnert, Ilan Horn, Naty Leiser, and Grzegorz Czajkowski. [Pregel: A System for Large-Scale Graph Processing](https://kowshik.github.io/JPregel/pregel_paper.pdf). In Proceedings of the 2010 ACM SIGMOD International Conference on Management of data (SIGMOD '10). ACM, New York, NY, USA, 135-146. DOI=http://dx.doi.org/10.1145/1807167.1807184
 10. Fred Hébert. [Learn You Some Erlang for Great Good](http://learnyousomeerlang.com/), 2013
 11. Суровский Евгений. [Очень большой Postgres](https://habrahabr.ru/post/253017/), 2015
+
+- - - - - - - - - - - - -
+## Прочие
+
+[Страничка курса](https://github.com/dluciv/nosql-intro-course)
+
+[Чат](https://riot.im/app/#/room/#lt-nosql:matrix.org)
+
 
 = = = = = = = = = = = = =
 # Что хотелось бы изменить/улучшить
@@ -184,4 +195,5 @@
 Ощущается потенциал для расширения образовательной деятельности.
 
 = = = = = = = = = = = = =
+
 # Спасибо
