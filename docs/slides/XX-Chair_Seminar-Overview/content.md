@@ -62,6 +62,81 @@
   * Эта тема фактически повисла, из неё следовало мало
 * Теоремы CAP и PACELC
 
+- - - - - - - - - - - - -
+## Нереляционные СУБД
+1. Графовые
+2. Логические
+3. Ключ-значение
+4. Документо-ориентированные
+    * XML — [Sedna](http://sedna.org/), [eXistdb](http://exist-db.org/exist/apps/homepage/index.html)
+    * JSON — [MongoDB](https://www.mongodb.com/), [CouchDB](http://couchdb.apache.org/)
+5. Колоночные (которые на самом деле реляционные =) )
+
+- - - - - - - - - - - - -
+## Паттерны и технологии
+
+Технологии
+
+2. ФС кластеров
+
+Паттерны
+
+2. Map-Reduce
+3. Pregel
+
+- - - - - - - - - - - - -
+## Практические примеры
+
+1. Пример использования API MongoDB (JavaScript и LiveScript)
+   * Установка и простейшая конфигурация сервера
+   * Импорт данных
+   * Хранимый код
+   * Простая аналитическая задача с использованием MapReduce
+2. Самостотельно реализуем GRID
+   * На выбор — Akka, Erlang, Microsoft Orleans
+   * Распределённый подбор пароля к ZIP-архиву
+
+- - - - - - - - - - - - -
+## Инженерия ПО и процесса производства ПО
+
+Дискуссия
+
+* [NoSQL и Agile](https://www.mongodb.com/agile-development)
+* [Дискуссия](http://www.dbta.com/BigDataQuarterly/Articles/The-Emerging-Agile-Data-Architecture-NoSQL-Hadoop-and-Beyond-113936.aspx)
+
+А NoSQL ли?.. Может что-нибудь на основе PostgreSQL? =)
+
+* https://jaxenter.com/nosql-vs-postgres-121967.html
+* http://www.aptuz.com/blog/is-postgres-nosql-database-better-than-mongodb/
+* https://habrahabr.ru/post/253017/
+
+- - - - - - - - - - - - -
+## Андеграунд
+
+Бонусная лекция, актуальность в рамках курса спорна
+
+1. Добросовестность сервисов и лояльность пользователей; совесть — лучший котнролёр; что попало в интернет — остаётся там навсегда
+2. ZeroNet, FreeNet, IPFS
+3. «Правильные» мессенджеры — XMPP, Matrix, Tox...
+4. Blockchain и те, кто из него произошёл
+5. Изоляция: две сети в «ящиках»; deaddrops
+
+= = = = = = = = = = = = =
+# Литература
+
+1.  Christof Strauch [NoSQL Databases](http://www.christof-strauch.de/nosqldbs.pdf)
+2.  Michael Stonebraker [Errors in Database Systems, Eventual Consistency, and the CAP Theorem](http://cacm.acm.org/blogs/blog-cacm/83396-errors-in-database-systems-eventual-consistency-and-the-cap-theorem/fulltext#). BLOG@CACM, April 5, 2010.
+    [Перевод](http://citforum.ru/gazeta/154/) С.Д. Кузнецова, ИСП РАН
+3.  Новиков Б.А., Домбровская Г.Р. Настройка приложений баз данных. БХВ-Петербург, 348 С., 2012.
+4.  Seth Gilbert, Nancy Lynch. [Brewer's Conjecture and the Feasibility of Consistent Available Partition-Tolerant Web Services](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.1495). In ACM SIGACT News, 2002
+5.  Daniel J. Abadi. [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), Yale University, 2012
+6.  Ian Robinson, Jim Webber, Emil Eifrem. [Graph Databases](http://graphdatabases.com/), O'Reilly Media, 2013
+7.  Jeffrey Dean, Sanjay Ghemawat. [MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/es/us/archive/mapreduce-osdi04.pdf), [OSDI, 2004](https://www.usenix.org/legacy/event/osdi04/)
+8.  Toby Segaran. [Programming Collective Intelligence](http://shop.oreilly.com/product/9780596529321.do), O'Reilly Media, 2007
+9.  Grzegorz Malewicz, Matthew H. Austern, Aart J.C Bik, James C. Dehnert, Ilan Horn, Naty Leiser, and Grzegorz Czajkowski. [Pregel: A System for Large-Scale Graph Processing](https://kowshik.github.io/JPregel/pregel_paper.pdf). In Proceedings of the 2010 ACM SIGMOD International Conference on Management of data (SIGMOD '10). ACM, New York, NY, USA, 135-146. DOI=http://dx.doi.org/10.1145/1807167.1807184
+10. Fred Hébert. [Learn You Some Erlang for Great Good](http://learnyousomeerlang.com/), 2013
+11. Суровский Евгений. [Очень большой Postgres](https://habrahabr.ru/post/253017/), 2015
+
 = = = = = = = = = = = = =
 # Что хотелось бы изменить/улучшить
 
@@ -103,13 +178,10 @@
 
 * В компании работает много сотрудников с хорошими образованием и
   бэкграундом вообще.
-* Несмотря на большое количество внешних кадров, сохраняется
-  определённый академический дух. Видимо хорошая кадровая политика.
+* Несмотря на большое количество внешних кадров, кадровая политика
+  позволяет сохранить академический дух.
 
-$$\implies$$
-
-Есть ощущение, что в принципе подобный вид деятельности допускает
-повышение объёма.
+Ощущается потенциал для расширения образовательной деятельности.
 
 = = = = = = = = = = = = =
 # Спасибо
