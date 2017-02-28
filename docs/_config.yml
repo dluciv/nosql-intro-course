@@ -1,1 +1,6 @@
 theme: jekyll-theme-midnight
+title: Распределённая обработка информации и NoSQL базы данных
+description: Курс повышения квалификации для инженеров-программистов
+markdown: kramdown
+kramdown:
+   auto_ids: true
