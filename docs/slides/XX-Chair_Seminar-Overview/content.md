@@ -143,7 +143,7 @@
 - - - - - - - - - - - - -
 ## Прочие
 
-[Страничка курса](https://github.com/dluciv/nosql-intro-course)
+[Страничка курса](https://dluciv.github.io/nosql-intro-course)
 
 [Чат](https://riot.im/app/#/room/#lt-nosql:matrix.org)
 
