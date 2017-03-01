@@ -173,7 +173,7 @@ description: Курс повышения квалификации для инж�
 1.  Christof Strauch [NoSQL Databases](http://www.christof-strauch.de/nosqldbs.pdf)
 2.  Michael Stonebraker [Errors in Database Systems, Eventual Consistency, and the CAP Theorem](http://cacm.acm.org/blogs/blog-cacm/83396-errors-in-database-systems-eventual-consistency-and-the-cap-theorem/fulltext#). BLOG@CACM, April 5, 2010.
     [Перевод](http://citforum.ru/gazeta/154/) С.Д. Кузнецова, ИСП РАН
-3.  Новиков Б.А., Домбровская Г.Р. Настройка приложений баз данных. БХВ-Петербург, 348 С., 2012.
+3.  Новиков Б.А., Домбровская Г.Р. Настройка приложений баз данных. БХВ-Петербург, 348 С., 2012. Открыто доступна [развёрнутая аннотация](http://citforum.ru/seminars/cbd2008/2_7.pdf)
 4.  Seth Gilbert, Nancy Lynch. [Brewer's Conjecture and the Feasibility of Consistent Available Partition-Tolerant Web Services](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.1495). In ACM SIGACT News, 2002
 5.  Daniel J. Abadi. [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), Yale University, 2012
 6.  Ian Robinson, Jim Webber, Emil Eifrem. [Graph Databases](http://graphdatabases.com/), O'Reilly Media, 2013
