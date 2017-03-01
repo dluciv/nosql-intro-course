@@ -63,6 +63,8 @@
 - - - - - - - - - - - - -
 ## The NoSQL Movement
 
+<p>![](images/GoldenHammer-ru.gif)</p><!--.element: style="text-align:center;" -->
+
 История и суть
 
 Основы:

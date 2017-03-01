@@ -7,7 +7,7 @@ description: Курс повышения квалификации для инж�
 
 # Распределённая обработка информации и NoSQL базы данных
 
-[![Ada Lovelace](resources/Ada-18-396x480.jpg)](https://en.wikipedia.org/wiki/Ada_Lovelace)
+<!-- [![Ada Lovelace](resources/Ada-18-396x480.jpg)](https://en.wikipedia.org/wiki/Ada_Lovelace) -->
 
 <!-- © [Высшая инженерная школа «Авалон»](http://www.avalon.ru/) \ -->
 <!-- © [ООО «Ланит-Терком»](http://lanit-tercom.com/) \ -->
